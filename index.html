@@ -434,6 +434,14 @@ const auth = firebase.auth();
 const db   = firebase.database();
 const provider = new firebase.auth.GoogleAuthProvider();
 
+// Handle redirect result on mobile
+auth.getRedirectResult().catch(err => {
+  if (err.code) {
+    const el = document.getElementById('authError');
+    if (el) { el.textContent = err.message; el.style.display = 'block'; }
+  }
+});
+
 // ── GUEST LIST ──
 const GUESTS = [
   {n:"Adria",    full:"Adria Toliver",    i:"AD",c:"#9a3a8a",role:"Birthday Girl 🎂 Jul 6",   paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],    trips:["morocco","madrid","split","yacht","montenegro"]},
@@ -484,11 +492,20 @@ auth.onAuthStateChanged(user => {
 });
 
 function signIn() {
-  auth.signInWithPopup(provider).catch(err => {
-    const el = document.getElementById('authError');
-    el.textContent = err.message;
-    el.style.display = 'block';
-  });
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile) {
+    auth.signInWithRedirect(provider).catch(err => {
+      const el = document.getElementById('authError');
+      el.textContent = err.message;
+      el.style.display = 'block';
+    });
+  } else {
+    auth.signInWithPopup(provider).catch(err => {
+      const el = document.getElementById('authError');
+      el.textContent = err.message;
+      el.style.display = 'block';
+    });
+  }
 }
 function signOut() {
   auth.signOut();
