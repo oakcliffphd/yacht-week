@@ -394,7 +394,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
   </div>
   <div class="tab-panel" id="tab-flights">
     <div class="sec-title">Flights</div>
-    <div class="sec-desc">Send details to karnellblack@gmail.com or adria_toliver@yahoo.com</div>
+    <div class="sec-desc">Send details to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d5beb4a7bbb0b9b9b7b9b4b6be95b2b8b4bcb9fbb6bab8">[email&#160;protected]</a> or <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e8898c9a8189b79c8784819e8d9aa89189808787c68b8785">[email&#160;protected]</a></div>
     <div class="flt-wrap" id="flightsEl"></div>
   </div>
 </div>
@@ -797,36 +797,70 @@ const MS=[
   {d:"Apr 5",l:"FINAL",a:"$800",now:true},{d:"Jul 4",l:"Board!",a:"🛳️",future:true},
 ];
 function renderPayments(){
+  const isAdria = guestIdx === 0; // Adria is index 0
   const total=GUESTS.reduce((s,p)=>s+p.owed,0);
   const collected=GUESTS.reduce((s,p)=>s+p.paid,0);
   const outstanding=total-collected;
   const pct=Math.round((collected/total)*100);
+
+  // Payment schedule — visible to everyone
   document.getElementById('msEl').innerHTML=MS.map(m=>`<div class="ms"><div class="msd ${m.done?'done':m.now?'now':''}">${m.done?'✓':m.future?'🛳️':'!'}</div><div class="msdt">${m.d}</div><div class="msl">${m.l}</div><div class="msa">${m.a}</div></div>`).join('');
-  document.getElementById('paySumEl').innerHTML=`
-    <div class="psc"><div class="psl">Total (22 guests)</div><div class="psv">$${total.toLocaleString()}</div></div>
-    <div class="psc"><div class="psl">Collected</div><div class="psv g">$${collected.toLocaleString()}</div></div>
-    <div class="psc"><div class="psl">Outstanding</div><div class="psv ${outstanding>0?'r':'g'}">$${outstanding.toLocaleString()}</div></div>
-    <div class="psc"><div class="psl">Per Person (avg)</div><div class="psv">$4,550</div></div>`;
-  document.getElementById('opPct').textContent=pct+'%';
-  document.getElementById('opFill').style.width=pct+'%';
-  document.getElementById('opSub').textContent=
-    GUESTS.filter(p=>p.status==='paid').length+' fully paid · '+
-    GUESTS.filter(p=>p.status==='partial').length+' partial';
-  document.getElementById('payGridEl').innerHTML=GUESTS.map((p,i)=>{
-    const prog=Math.round((p.paid/p.owed)*100);
-    const bc=p.status==='paid'?'bp2':'bp3';
-    const bl=p.status==='paid'?'✓ Paid':'⏳ Partial';
-    return`<div class="pr" data-status="${p.status}">
-      <div class="pt2" onclick="tbd(${i})">
-        <div class="pav" style="background:${p.c}">${p.i}</div>
-        <div><div class="pnm">${p.n}</div><div class="prl">${p.role}</div></div>
-        <div class="pp"><div class="ppb"><div class="ppf" style="width:${prog}%"></div></div><div class="ppl">${prog}% paid</div></div>
-        <div class="pa"><div class="ppv">$${p.paid.toLocaleString()}</div><div class="pow">of $${p.owed.toLocaleString()}</div></div>
-        <span class="pbadge ${bc}">${bl}</span>
-      </div>
-      <div class="pbd" id="bd-${i}">${p.bd.map(([k,v])=>`<div class="bdr"><span class="bdi">${k}</span><span class="bdv">${v}</span></div>`).join('')}</div>
-    </div>`;
-  }).join('');
+
+  if (isAdria) {
+    // Full admin view for Adria
+    document.getElementById('paySumEl').innerHTML=`
+      <div class="psc"><div class="psl">Total (22 guests)</div><div class="psv">$${total.toLocaleString()}</div></div>
+      <div class="psc"><div class="psl">Collected</div><div class="psv g">$${collected.toLocaleString()}</div></div>
+      <div class="psc"><div class="psl">Outstanding</div><div class="psv ${outstanding>0?'r':'g'}">$${outstanding.toLocaleString()}</div></div>
+      <div class="psc"><div class="psl">Per Person (avg)</div><div class="psv">$4,550</div></div>`;
+    document.getElementById('opPct').textContent=pct+'%';
+    document.getElementById('opFill').style.width=pct+'%';
+    document.getElementById('opSub').textContent=
+      GUESTS.filter(p=>p.status==='paid').length+' fully paid · '+
+      GUESTS.filter(p=>p.status==='partial').length+' partial';
+    document.querySelector('.op').style.display='';
+    document.querySelector('.pay-filter').style.display='';
+    document.getElementById('payGridEl').innerHTML=GUESTS.map((p,i)=>{
+      const prog=Math.round((p.paid/p.owed)*100);
+      const bc=p.status==='paid'?'bp2':'bp3';
+      const bl=p.status==='paid'?'✓ Paid':'⏳ Partial';
+      return`<div class="pr" data-status="${p.status}">
+        <div class="pt2" onclick="tbd(${i})">
+          <div class="pav" style="background:${p.c}">${p.i}</div>
+          <div><div class="pnm">${p.n}</div><div class="prl">${p.role}</div></div>
+          <div class="pp"><div class="ppb"><div class="ppf" style="width:${prog}%"></div></div><div class="ppl">${prog}% paid</div></div>
+          <div class="pa"><div class="ppv">$${p.paid.toLocaleString()}</div><div class="pow">of $${p.owed.toLocaleString()}</div></div>
+          <span class="pbadge ${bc}">${bl}</span>
+        </div>
+        <div class="pbd" id="bd-${i}">${p.bd.map(([k,v])=>`<div class="bdr"><span class="bdi">${k}</span><span class="bdv">${v}</span></div>`).join('')}</div>
+      </div>`;
+    }).join('');
+  } else {
+    // Guest view — show only their own balance
+    document.getElementById('paySumEl').innerHTML='';
+    document.querySelector('.op').style.display='none';
+    document.querySelector('.pay-filter').style.display='none';
+    const g = guestIdx >= 0 ? GUESTS[guestIdx] : null;
+    if (g) {
+      const bal = g.owed - g.paid;
+      const balColor = bal === 0 ? '#2e8b57' : '#c4622d';
+      document.getElementById('payGridEl').innerHTML=`
+        <div class="mi-pax-match" style="margin-bottom:0">
+          <div class="mi-pax-av" style="background:${g.c}">${g.i}</div>
+          <div><div class="mi-pax-name">${g.n}</div><div class="mi-pax-role">${g.role}</div></div>
+          <div class="mi-pax-bal">
+            <div class="mi-pax-bal-num" style="color:${balColor}">$${bal.toLocaleString()}</div>
+            <div class="mi-pax-bal-lbl">${bal===0?'✓ Paid in full':'balance remaining'}</div>
+          </div>
+        </div>
+        <div style="margin-top:14px;padding:14px 18px;background:#fff;border:1px solid #dce8ee;border-radius:var(--ra);font-size:12px;color:var(--tm);line-height:1.7;">
+          💳 Send payments to <strong>Adria Toliver</strong><br>
+          Questions? Contact <strong>adria_toliver@yahoo.com</strong>
+        </div>`;
+    } else {
+      document.getElementById('payGridEl').innerHTML=`<div style="padding:18px;font-size:13px;color:var(--tg);">Sign in with your name matching the guest list to see your balance.</div>`;
+    }
+  }
 }
 function tbd(i){document.getElementById('bd-'+i).classList.toggle('open');}
 function fp(s,btn){
