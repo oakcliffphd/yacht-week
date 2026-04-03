@@ -349,7 +349,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
   <span class="due-pill" id="duePill">Loading…</span>
 </div>
 <nav class="tabs-nav" id="tabsNav" style="display:none">
-  <button class="tab-btn" onclick="sw('myinfo',this)">👤 My Info</button>
+  <button class="tab-btn" onclick="sw('myinfo',this)" id="myInfoTabBtn">👤 My Info</button>
   <button class="tab-btn" onclick="sw('pretrip',this)">🇲🇦 Pre-Trip</button>
   <button class="tab-btn active" onclick="sw('itinerary',this)">⛵ Yacht Week</button>
   <button class="tab-btn" onclick="sw('posttrip',this)">🇲🇪 Post-Trip</button>
@@ -417,28 +417,28 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 // ── GUEST LIST ──
 const GUESTS = [
-  {n:"Adria",    i:"AD",c:"#9a3a8a",role:"Birthday Girl 🎂 Jul 6",   paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]]},
-  {n:"Karnell",  i:"KA",c:"#c4622d",role:"Birthday Boy 🎂 Jul 2",    paid:3750,owed:4550,status:"partial", bd:[["Paid","$3,750"],["Balance","$800"]]},
-  {n:"Kelly",    i:"KE",c:"#c4622d",role:"Guest · w/ Karnell",       paid:3750,owed:4550,status:"partial", bd:[["Paid","$3,750"],["Balance","$800"]]},
-  {n:"Conley",   i:"CO",c:"#1a6b8a",role:"Guest · w/ Rey",           paid:2950,owed:4550,status:"partial", bd:[["Paid","$2,950"],["Balance","$1,600"]]},
-  {n:"Rey",      i:"RE",c:"#1a6b8a",role:"Guest · w/ Conley",        paid:2950,owed:4550,status:"partial", bd:[["Paid","$2,950"],["Balance","$1,600"]]},
-  {n:"Dex",      i:"DX",c:"#2e6b9a",role:"Guest · w/ Deloria",       paid:3700,owed:3700,status:"paid",    bd:[["Group pkg","$7,400 ✓"],["Balance","$0"]]},
-  {n:"Deloria",  i:"DL",c:"#2e6b9a",role:"Guest · w/ Dex",           paid:3700,owed:3700,status:"paid",    bd:[["Group pkg","$7,400 ✓"],["Balance","$0"]]},
-  {n:"Rob",      i:"RO",c:"#2e8b57",role:"Guest · w/ Cecilia",       paid:3750,owed:4550,status:"partial", bd:[["Paid","$3,750"],["Balance","$800"]]},
-  {n:"Cecilia",  i:"CE",c:"#2e8b57",role:"Guest · w/ Rob",           paid:3750,owed:4550,status:"partial", bd:[["Paid","$3,750"],["Balance","$800"]]},
-  {n:"Kathryn",  i:"KT",c:"#7a3a9a",role:"Guest · w/ Francois",      paid:200, owed:4750,status:"partial", bd:[["Paid","$200"],["Balance","$4,550"]]},
-  {n:"Francois", i:"FR",c:"#7a3a9a",role:"Guest · w/ Kathryn",       paid:200, owed:4550,status:"partial", bd:[["Paid","$200"],["Balance","$4,350"]]},
-  {n:"Jasmine",  i:"JA",c:"#d4860a",role:"Guest · solo cabin",       paid:2950,owed:4550,status:"partial", bd:[["Paid","$2,950"],["Balance","$1,600"]]},
-  {n:"Mya",      i:"MY",c:"#b83a6a",role:"Guest · solo cabin",       paid:4500,owed:4500,status:"paid",    bd:[["Total paid","$4,500 ✓"],["Balance","$0"]]},
-  {n:"Karen",    i:"KR",c:"#3a6a9a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]]},
-  {n:"Akilah",   i:"AK",c:"#6b5ba4",role:"Guest · solo cabin",       paid:3010,owed:4550,status:"partial", bd:[["Paid","$3,010"],["Balance","$1,540"]]},
-  {n:"Bre",      i:"BR",c:"#3a8a6a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]]},
-  {n:"Lauren",   i:"LA",c:"#8a6a2a",role:"Guest · solo cabin",       paid:1100,owed:4550,status:"partial", bd:[["Paid","$1,100"],["Balance","$3,450"]]},
-  {n:"Oneika",   i:"ON",c:"#2a7a8a",role:"Guest · solo cabin",       paid:1350,owed:4550,status:"partial", bd:[["Paid","$1,350"],["Balance","$3,200"]]},
-  {n:"Chelsea",  i:"CH",c:"#9a3a4a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]]},
-  {n:"Christen", i:"CR",c:"#4a7a4a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]]},
-  {n:"Morgan",   i:"MO",c:"#7a4a8a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]]},
-  {n:"Syreeta",  i:"SY",c:"#1a7a5a",role:"Guest · solo cabin",       paid:3750,owed:4550,status:"partial", bd:[["Paid","$3,750"],["Balance","$800"]]},
+  {n:"Adria",    full:"Adria Toliver",    i:"AD",c:"#9a3a8a",role:"Birthday Girl 🎂 Jul 6",   paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],    trips:["morocco","madrid","split","yacht","montenegro"]},
+  {n:"Karnell",  full:"Karnell McConnell",i:"KA",c:"#c4622d",role:"Birthday Boy 🎂 Jul 2",    paid:3750,owed:4550,status:"partial", bd:[["Paid","$3,750"],["Balance","$800"]],           trips:["morocco","madrid","split","yacht"]},
+  {n:"Kelly",    full:"Kelly",            i:"KE",c:"#c4622d",role:"Guest · w/ Karnell",       paid:3750,owed:4550,status:"partial", bd:[["Paid","$3,750"],["Balance","$800"]],           trips:["morocco","madrid","split","yacht"]},
+  {n:"Conley",   full:"Michael Conley",   i:"CO",c:"#1a6b8a",role:"Guest · w/ Rey",           paid:2950,owed:4550,status:"partial", bd:[["Paid","$2,950"],["Balance","$1,600"]],         trips:["madrid","split","yacht"]},
+  {n:"Rey",      full:"Rey",              i:"RE",c:"#1a6b8a",role:"Guest · w/ Conley",        paid:2950,owed:4550,status:"partial", bd:[["Paid","$2,950"],["Balance","$1,600"]],         trips:["madrid","split","yacht"]},
+  {n:"Dex",      full:"Dex Rho",          i:"DX",c:"#2e6b9a",role:"Guest · w/ Deloria",       paid:3700,owed:3700,status:"paid",    bd:[["Group pkg","$7,400 ✓"],["Balance","$0"]],      trips:["split","yacht"]},
+  {n:"Deloria",  full:"Deloria",          i:"DL",c:"#2e6b9a",role:"Guest · w/ Dex",           paid:3700,owed:3700,status:"paid",    bd:[["Group pkg","$7,400 ✓"],["Balance","$0"]],      trips:["split","yacht"]},
+  {n:"Rob",      full:"Robert Stanczuk",  i:"RO",c:"#2e8b57",role:"Guest · w/ Cecilia",       paid:3750,owed:4550,status:"partial", bd:[["Paid","$3,750"],["Balance","$800"]],           trips:["yacht"]},
+  {n:"Cecilia",  full:"Cecilia",          i:"CE",c:"#2e8b57",role:"Guest · w/ Rob",           paid:3750,owed:4550,status:"partial", bd:[["Paid","$3,750"],["Balance","$800"]],           trips:["yacht"]},
+  {n:"Kathryn",  full:"Kathryn Coquemont",i:"KT",c:"#7a3a9a",role:"Guest · w/ Francois",      paid:200, owed:4750,status:"partial", bd:[["Paid","$200"],["Balance","$4,550"]],           trips:["morocco","madrid","split","yacht"]},
+  {n:"Francois", full:"Francois Coquemont",i:"FR",c:"#7a3a9a",role:"Guest · w/ Kathryn",      paid:200, owed:4550,status:"partial", bd:[["Paid","$200"],["Balance","$4,350"]],           trips:["madrid","split","yacht"]},
+  {n:"Jasmine",  full:"Jasmine Mitchell", i:"JA",c:"#d4860a",role:"Guest · solo cabin",       paid:2950,owed:4550,status:"partial", bd:[["Paid","$2,950"],["Balance","$1,600"]],         trips:["yacht"]},
+  {n:"Mya",      full:"Mya Donald",       i:"MY",c:"#b83a6a",role:"Guest · solo cabin",       paid:4500,owed:4500,status:"paid",    bd:[["Total paid","$4,500 ✓"],["Balance","$0"]],     trips:["yacht"]},
+  {n:"Karen",    full:"Karen Carnevale",  i:"KR",c:"#3a6a9a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
+  {n:"Akilah",   full:"Akilah Mahon",     i:"AK",c:"#6b5ba4",role:"Guest · solo cabin",       paid:3010,owed:4550,status:"partial", bd:[["Paid","$3,010"],["Balance","$1,540"]],         trips:["split","yacht"]},
+  {n:"Bre",      full:"Breoshshala Martin",i:"BR",c:"#3a8a6a",role:"Guest · solo cabin",      paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
+  {n:"Lauren",   full:"Lauren Guerrido",  i:"LA",c:"#8a6a2a",role:"Guest · solo cabin",       paid:1100,owed:4550,status:"partial", bd:[["Paid","$1,100"],["Balance","$3,450"]],         trips:["yacht"]},
+  {n:"Oneika",   full:"Oneika Barrett",   i:"ON",c:"#2a7a8a",role:"Guest · solo cabin",       paid:1350,owed:4550,status:"partial", bd:[["Paid","$1,350"],["Balance","$3,200"]],         trips:["yacht"]},
+  {n:"Chelsea",  full:"Chelsea Fegans",   i:"CH",c:"#9a3a4a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
+  {n:"Christen", full:"Christen Sutton",  i:"CR",c:"#4a7a4a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
+  {n:"Morgan",   full:"Morgan Polk",      i:"MO",c:"#7a4a8a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
+  {n:"Syreeta",  full:"Syreeta Green",    i:"SY",c:"#1a7a5a",role:"Guest · solo cabin",       paid:3750,owed:4550,status:"partial", bd:[["Paid","$3,750"],["Balance","$800"]],           trips:["yacht"]},
 ];
 
 const FIRST_NAMES = GUESTS.map(g => g.n.toLowerCase());
@@ -491,6 +491,11 @@ function showApp(user) {
     matchEl.textContent = '⚠️ Name not matched — contact Adria';
     matchEl.className = 'user-match no';
   }
+  // Update tab button name dynamically
+  const tabBtn = document.getElementById('myInfoTabBtn');
+  if (tabBtn) {
+    tabBtn.textContent = guestIdx >= 0 ? `👤 ${GUESTS[guestIdx].n}'s Info` : '👤 My Info';
+  }
   initPacking();
   renderAll();
   tick(); updateDuePill(); setInterval(tick, 30000);
@@ -511,64 +516,162 @@ function setSynced() {
 // ── MY INFO TAB ──
 function renderMyInfo() {
   const g = guestIdx >= 0 ? GUESTS[guestIdx] : null;
-  const bal = g ? (g.owed - g.paid) : 0;
-  const balColor = bal === 0 ? '#2e8b57' : '#c4622d';
+  const trips = g ? g.trips : [];
+
+  // Trip leg definitions — label, key prefix, flight fields, hotel fields
+  const ALL_LEGS = [
+    {
+      key:"morocco", label:"🇲🇦 Morocco Leg", icon:"🇲🇦",
+      flightTitle:"Flight to Marrakesh",
+      flightFields:[
+        {id:"flt_morocco_num",  label:"Flight #",         ph:"e.g. AA2933"},
+        {id:"flt_morocco_date", label:"Departure Date",   ph:"e.g. Jun 28"},
+        {id:"flt_morocco_from", label:"Departure Airport",ph:"e.g. DFW"},
+        {id:"flt_morocco_arr",  label:"Arrival in RAK",   ph:"e.g. Jun 29, 12:20PM"},
+      ],
+      hotelTitle:"Hotel in Marrakesh",
+      hotelFields:[
+        {id:"htl_morocco_name", label:"Hotel Name",  ph:"e.g. Riad Dar Assiya"},
+        {id:"htl_morocco_in",   label:"Check-in",    ph:"e.g. Jun 29"},
+        {id:"htl_morocco_out",  label:"Check-out",   ph:"e.g. Jul 2"},
+      ],
+    },
+    {
+      key:"madrid", label:"🇪🇸 Madrid Leg", icon:"🇪🇸",
+      flightTitle:"Flight to Madrid",
+      flightFields:[
+        {id:"flt_madrid_num",  label:"Flight #",         ph:"e.g. IB1852"},
+        {id:"flt_madrid_date", label:"Departure Date",   ph:"e.g. Jul 2"},
+        {id:"flt_madrid_from", label:"Departure Airport",ph:"e.g. RAK or home city"},
+        {id:"flt_madrid_arr",  label:"Arrival in MAD",   ph:"e.g. Jul 2, 4:00PM"},
+      ],
+      hotelTitle:"Hotel in Madrid",
+      hotelFields:[
+        {id:"htl_madrid_name", label:"Hotel Name",  ph:"e.g. UMusic Hotel Madrid"},
+        {id:"htl_madrid_in",   label:"Check-in",    ph:"e.g. Jul 2"},
+        {id:"htl_madrid_out",  label:"Check-out",   ph:"e.g. Jul 3"},
+      ],
+    },
+    {
+      key:"split", label:"🇭🇷 Pre-Yacht Split", icon:"🇭🇷",
+      flightTitle:"Flight to Split",
+      flightFields:[
+        {id:"flt_split_num",  label:"Flight #",         ph:"e.g. LH1123"},
+        {id:"flt_split_date", label:"Departure Date",   ph:"e.g. Jul 3"},
+        {id:"flt_split_from", label:"Departure Airport",ph:"e.g. MAD"},
+        {id:"flt_split_arr",  label:"Arrival in SPU",   ph:"e.g. Jul 3, 1:45PM"},
+      ],
+      hotelTitle:"Hotel in Split (night before boarding)",
+      hotelFields:[
+        {id:"htl_split_name", label:"Hotel Name",  ph:"e.g. AC Hotel Split"},
+        {id:"htl_split_in",   label:"Check-in",    ph:"e.g. Jul 3"},
+        {id:"htl_split_out",  label:"Check-out",   ph:"e.g. Jul 4 (board at 1PM)"},
+      ],
+    },
+    {
+      key:"yacht", label:"⛵ Yacht Week Return", icon:"⛵",
+      flightTitle:"Return Flight from Dubrovnik",
+      flightFields:[
+        {id:"flt_yacht_num",  label:"Flight #",          ph:"e.g. AA7058"},
+        {id:"flt_yacht_date", label:"Departure Date",    ph:"e.g. Jul 11"},
+        {id:"flt_yacht_from", label:"Departure Airport", ph:"e.g. DBV"},
+        {id:"flt_yacht_arr",  label:"Arrival / Destination",ph:"e.g. Jul 11, 3:00PM"},
+      ],
+      hotelTitle:null, hotelFields:[],
+    },
+    {
+      key:"montenegro", label:"🇲🇪 Montenegro Leg", icon:"🇲🇪",
+      flightTitle:"Flight to Montenegro",
+      flightFields:[
+        {id:"flt_mne_num",  label:"Flight #",         ph:"e.g. JU723"},
+        {id:"flt_mne_date", label:"Departure Date",   ph:"e.g. Jul 11"},
+        {id:"flt_mne_from", label:"Departure Airport",ph:"e.g. DBV"},
+        {id:"flt_mne_arr",  label:"Arrival in TIV",   ph:"e.g. Jul 11, 6:25PM"},
+      ],
+      hotelTitle:"Hotel in Montenegro",
+      hotelFields:[
+        {id:"htl_mne_name", label:"Hotel Name",  ph:"e.g. Regent Porto Montenegro"},
+        {id:"htl_mne_in",   label:"Check-in",    ph:"e.g. Jul 11"},
+        {id:"htl_mne_out",  label:"Check-out",   ph:"e.g. Jul 15"},
+      ],
+    },
+    {
+      key:"return", label:"✈️ Return Home", icon:"✈️",
+      flightTitle:"Flight Home from Montenegro",
+      flightFields:[
+        {id:"flt_ret_num",  label:"Flight #",          ph:"e.g. AA1234"},
+        {id:"flt_ret_date", label:"Departure Date",    ph:"e.g. Jul 15"},
+        {id:"flt_ret_from", label:"Departure Airport", ph:"e.g. TIV or DBV"},
+        {id:"flt_ret_arr",  label:"Arrival / Destination",ph:"e.g. Jul 15, home city"},
+      ],
+      hotelTitle:null, hotelFields:[],
+    },
+  ];
+
+  // For guests not on a leg, still show yacht return leg
+  const guestLegs = trips.includes('montenegro')
+    ? [...ALL_LEGS]
+    : ALL_LEGS.filter(l => trips.includes(l.key) || l.key === 'yacht');
+
+  const fieldHtml = (fields) => {
+    const rows = [];
+    for (let i = 0; i < fields.length; i += 2) {
+      rows.push(`<div class="mi-row">
+        <div class="mi-field"><label class="mi-label">${fields[i].label}</label><input class="mi-input" id="${fields[i].id}" placeholder="${fields[i].ph}" oninput="autoSaveInfo()"></div>
+        ${fields[i+1] ? `<div class="mi-field"><label class="mi-label">${fields[i+1].label}</label><input class="mi-input" id="${fields[i+1].id}" placeholder="${fields[i+1].ph}" oninput="autoSaveInfo()"></div>` : '<div class="mi-field"></div>'}
+      </div>`);
+    }
+    return rows.join('');
+  };
+
+  const legSections = guestLegs.map(leg => `
+    <div class="mi-card">
+      <div class="mi-card-title">${leg.icon} ${leg.label}</div>
+      <div style="font-size:11px;font-weight:600;color:var(--om);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">✈️ ${leg.flightTitle}</div>
+      ${fieldHtml(leg.flightFields)}
+      ${leg.hotelTitle ? `
+        <div style="font-size:11px;font-weight:600;color:var(--om);letter-spacing:1px;text-transform:uppercase;margin:14px 0 10px;">🏨 ${leg.hotelTitle}</div>
+        ${fieldHtml(leg.hotelFields)}
+      ` : ''}
+      <span class="mi-saved-msg" id="saved_${leg.key}">✓ Saved</span>
+    </div>
+  `).join('');
 
   let matchHtml = g
     ? `<div class="mi-pax-match">
         <div class="mi-pax-av" style="background:${g.c}">${g.i}</div>
-        <div><div class="mi-pax-name">${g.n}</div><div class="mi-pax-role">${g.role}</div></div>
-        <div class="mi-pax-bal">
-          <div class="mi-pax-bal-num" style="color:${balColor}">$${bal.toLocaleString()}</div>
-          <div class="mi-pax-bal-lbl">${bal===0?'✓ Paid in full':'balance remaining'}</div>
-        </div>
+        <div><div class="mi-pax-name">${g.full || g.n}</div><div class="mi-pax-role">${g.role}</div></div>
       </div>`
     : `<div class="mi-no-match">⚠️ Your Google display name doesn't match a guest name. Contact Adria to get linked — your info will still save!</div>`;
 
   document.getElementById('myInfoInner').innerHTML = `
-    <div class="sec-title">My Info</div>
+    <div class="sec-title">${g ? `${g.n}'s Info` : 'My Info'}</div>
     <div class="sec-desc">Your personal details · changes save automatically and sync live</div>
     ${matchHtml}
+    ${legSections}
     <div class="mi-card">
-      <div class="mi-card-title">✈️ My Flight Details</div>
-      <div class="mi-row">
-        <div class="mi-field"><label class="mi-label">Outbound Flight #</label><input class="mi-input" id="mi_outFlight" placeholder="e.g. AA1234" oninput="autoSaveInfo()"></div>
-        <div class="mi-field"><label class="mi-label">Outbound Date</label><input class="mi-input" id="mi_outDate" placeholder="e.g. Jul 3" oninput="autoSaveInfo()"></div>
-      </div>
-      <div class="mi-row">
-        <div class="mi-field"><label class="mi-label">Departure Airport</label><input class="mi-input" id="mi_outFrom" placeholder="e.g. LAX" oninput="autoSaveInfo()"></div>
-        <div class="mi-field"><label class="mi-label">Arrival Time in Split</label><input class="mi-input" id="mi_outArrival" placeholder="e.g. 2:30 PM" oninput="autoSaveInfo()"></div>
-      </div>
-      <div class="mi-row">
-        <div class="mi-field"><label class="mi-label">Return Flight #</label><input class="mi-input" id="mi_retFlight" placeholder="e.g. AA5678" oninput="autoSaveInfo()"></div>
-        <div class="mi-field"><label class="mi-label">Return Date & Time</label><input class="mi-input" id="mi_retTime" placeholder="e.g. Jul 11, 1:05 PM" oninput="autoSaveInfo()"></div>
-      </div>
-      <span class="mi-saved-msg" id="flightSavedMsg">✓ Saved</span>
-    </div>
-    <div class="mi-card">
-      <div class="mi-card-title">🏨 Hotel Before Boarding</div>
-      <div class="mi-row">
-        <div class="mi-field"><label class="mi-label">Hotel Name</label><input class="mi-input" id="mi_hotel" placeholder="e.g. AC Hotel Split" oninput="autoSaveInfo()"></div>
-        <div class="mi-field"><label class="mi-label">Check-in Date</label><input class="mi-input" id="mi_hotelDate" placeholder="e.g. Jul 3" oninput="autoSaveInfo()"></div>
-      </div>
-      <span class="mi-saved-msg" id="hotelSavedMsg">✓ Saved</span>
-    </div>
-    <div class="mi-card">
-      <div class="mi-card-title">🗒️ Notes for Adria</div>
-      <textarea class="mi-input" id="mi_notes" rows="3" placeholder="Dietary needs, room requests, anything Adria should know…" oninput="autoSaveInfo()" style="width:100%;resize:vertical;"></textarea>
+      <div class="mi-card-title">🗒️ Notes for Karnell & Adria</div>
+      <textarea class="mi-input" id="mi_notes" rows="3" placeholder="Dietary needs, room requests, anything the organizers should know…" oninput="autoSaveInfo()" style="width:100%;resize:vertical;"></textarea>
       <br><br><span class="mi-saved-msg" id="notesSavedMsg">✓ Saved</span>
     </div>`;
+
+  // Collect all field IDs for saving/loading
+  const allFields = guestLegs.flatMap(l => [...l.flightFields, ...l.hotelFields]).map(f => f.id);
+  allFields.push('mi_notes');
 
   // Load saved data
   if (currentUser) {
     db.ref('guests/' + currentUser.uid + '/info').once('value').then(snap => {
       const d = snap.val() || {};
-      ['outFlight','outDate','outFrom','outArrival','retFlight','retTime','hotel','hotelDate','notes'].forEach(k => {
-        const el = document.getElementById('mi_' + k);
+      allFields.forEach(k => {
+        const el = document.getElementById(k);
         if (el && d[k]) { el.value = d[k]; el.classList.add('saved'); }
       });
     });
   }
+  // Store field list for autoSave
+  window._myInfoFields = allFields;
+  window._myInfoLegs = guestLegs;
 }
 
 let saveTimer = null;
@@ -577,18 +680,21 @@ function autoSaveInfo() {
   setSyncing();
   saveTimer = setTimeout(() => {
     if (!currentUser) return;
-    const fields = ['outFlight','outDate','outFrom','outArrival','retFlight','retTime','hotel','hotelDate','notes'];
+    const fields = window._myInfoFields || [];
     const data = {};
     fields.forEach(k => {
-      const el = document.getElementById('mi_' + k);
+      const el = document.getElementById(k);
       if (el) { data[k] = el.value; if(el.value) el.classList.add('saved'); }
     });
     db.ref('guests/' + currentUser.uid + '/info').set(data).then(() => {
       setSynced();
-      ['flightSavedMsg','hotelSavedMsg','notesSavedMsg'].forEach(id => {
-        const el = document.getElementById(id);
+      // Show saved messages for all legs
+      (window._myInfoLegs || []).forEach(leg => {
+        const el = document.getElementById('saved_' + leg.key);
         if (el) { el.classList.add('show'); setTimeout(() => el.classList.remove('show'), 2000); }
       });
+      const notesEl = document.getElementById('notesSavedMsg');
+      if (notesEl) { notesEl.classList.add('show'); setTimeout(() => notesEl.classList.remove('show'), 2000); }
     });
   }, 800);
 }
