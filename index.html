@@ -492,20 +492,7 @@ auth.onAuthStateChanged(user => {
 });
 
 function signIn() {
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  if (isMobile) {
-    auth.signInWithRedirect(provider).catch(err => {
-      const el = document.getElementById('authError');
-      el.textContent = err.message;
-      el.style.display = 'block';
-    });
-  } else {
-    auth.signInWithPopup(provider).catch(err => {
-      const el = document.getElementById('authError');
-      el.textContent = err.message;
-      el.style.display = 'block';
-    });
-  }
+  auth.signInWithRedirect(provider);
 }
 function signOut() {
   auth.signOut();
