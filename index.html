@@ -539,18 +539,19 @@ const GUEST_ITIN = {
       { type:"flight", status:"confirmed", label:"✈️ Dallas → Marrakesh", date:"Sun Jun 28", details:[
         {k:"Flight", v:"AA36 · DFW→MAD · 4:55PM departs"},
         {k:"Arrives Madrid", v:"Mon Jun 29 · 9:05AM"},
-        {k:"Connecting", v:"MAD→RAK · IB8647 · 11:20AM→12:20PM"},
+        {k:"Connecting", v:"IB8647 · MAD→RAK · 11:20AM–12:20PM"},
         {k:"Booked via", v:"Capital One Travel"},
       ]},
       { type:"hotel", status:"confirmed", label:"🏨 Riad Dar Assiya · Marrakesh", date:"Jun 29 – Jul 2", details:[
         {k:"Room", v:"Dueria Room"},
         {k:"Address", v:"20 Derb Ouali Kaat Benahid, Marrakech Medina"},
-        {k:"Check-out", v:"Jul 2 (fly to Madrid)"},
+        {k:"Check-out", v:"Jul 2"},
       ]},
       { type:"flight", status:"confirmed", label:"✈️ Marrakesh → Madrid", date:"Thu Jul 2", details:[
-        {k:"Flight", v:"IB1852 · RAK→MAD · 1:00PM–4:00PM"},
+        {k:"Flight", v:"IB1852 · RAK→MAD · 1:00PM"},
+        {k:"Arrives Madrid", v:"Thu Jul 2 · 4:00PM"},
         {k:"Confirmation", v:"CLF3Z5"},
-        {k:"With", v:"Karnell, Kelly, Kathryn, Claire"},
+        {k:"Traveling with", v:"Karnell, Kelly, Kathryn, Claire"},
       ]},
       { type:"hotel", status:"confirmed", label:"🏨 UMusic Hotel Madrid", date:"Jul 2–3", details:[
         {k:"Room", v:"TBD"},
@@ -558,12 +559,13 @@ const GUEST_ITIN = {
         {k:"Address", v:"Calle de la Paz, Sol · Madrid"},
       ]},
       { type:"flight", status:"confirmed", label:"✈️ Madrid → Split", date:"Fri Jul 3", details:[
-        {k:"Flight 1", v:"LH1123 · MAD→FRA · 8:25AM–11:00AM"},
-        {k:"Layover", v:"Frankfurt · 1h 5m"},
-        {k:"Flight 2", v:"LH6004 · FRA→SPU · 12:05PM–1:45PM"},
-        {k:"Confirmation", v:"H-N-KM4MF8 · Capital One Travel"},
+        {k:"Flight", v:"LH1123 · MAD→FRA · 8:25AM"},
+        {k:"Arrives Frankfurt", v:"Fri Jul 3 · 11:00AM"},
+        {k:"Connecting", v:"LH6004 · FRA→SPU · 12:05PM–1:45PM"},
+        {k:"Booked via", v:"Capital One Travel · Conf: H-N-KM4MF8"},
       ]},
       { type:"hotel", status:"confirmed", label:"🏨 AC Hotel by Marriott Split", date:"Jul 3 (1 night)", details:[
+        {k:"Room", v:"TBD"},
         {k:"Sharing with", v:"Akilah"},
         {k:"Note", v:"Dalmatia Tower — tallest building in Croatia"},
         {k:"Check-out", v:"Jul 4 · Board yacht at 1PM"},
@@ -574,48 +576,54 @@ const GUEST_ITIN = {
         {k:"Disembarks", v:"Split · Jul 11 · morning"},
         {k:"Transfer", v:"Private coach Split → Dubrovnik Airport"},
       ]},
-      { type:"flight", status:"confirmed", label:"✈️ Dubrovnik → Tivat (Montenegro)", date:"Sat Jul 11", details:[
-        {k:"Flight 1", v:"JU723 · DBV→BEG · 3:05PM–4:20PM"},
-        {k:"Flight 2", v:"JU688 · BEG→TIV · 5:25PM–6:25PM"},
+      { type:"flight", status:"confirmed", label:"✈️ Dubrovnik → Montenegro", date:"Sat Jul 11", details:[
+        {k:"Flight", v:"JU723 · DBV→BEG · 3:05PM"},
+        {k:"Arrives Belgrade", v:"Sat Jul 11 · 4:20PM"},
+        {k:"Connecting", v:"JU688 · BEG→TIV · 5:25PM–6:25PM"},
         {k:"Booked via", v:"American Express"},
         {k:"Note", v:"Tivat Airport is 8km from Kotor"},
       ]},
       { type:"hotel", status:"confirmed", label:"🏨 Regent Porto Montenegro", date:"Jul 11–15", details:[
+        {k:"Room", v:"TBD"},
         {k:"Sharing with", v:"Kim"},
         {k:"Address", v:"Obala bb, Porto Montenegro, Tivat"},
         {k:"Contact", v:"+382 (0)32 660 660"},
       ]},
       { type:"flight", status:"tbd", label:"✈️ Montenegro → Home", date:"Wed Jul 15", details:[
         {k:"Flight", v:"TBD"},
-        {k:"From", v:"TIV or DBV"},
+        {k:"Departs", v:"TIV or DBV"},
       ]},
     ]
   },
   "Karnell": {
     legs: [
       { type:"flight", status:"confirmed", label:"✈️ Portland → Marrakesh", date:"Sun Jun 28", details:[
-        {k:"Flight 1", v:"AA2933 · PDX→ORD · 6:00AM–12:06PM"},
-        {k:"Flight 2", v:"Iberia 8754 · ORD→MAD · 4:30PM–7:55AM+1"},
-        {k:"Connecting", v:"MAD→RAK · IB8647 · 11:20AM–12:20PM"},
-        {k:"With", v:"Kelly"},
+        {k:"Flight", v:"AA2933 · PDX→ORD · 6:00AM"},
+        {k:"Arrives Chicago", v:"Sun Jun 28 · 12:06PM"},
+        {k:"Connecting", v:"Iberia 8754 · ORD→MAD · 4:30PM–7:55AM+1"},
+        {k:"Connecting", v:"IB8647 · MAD→RAK · 11:20AM–12:20PM"},
+        {k:"Traveling with", v:"Kelly"},
       ]},
       { type:"hotel", status:"confirmed", label:"🏨 Riad Dar Assiya · Marrakesh", date:"Jun 29 – Jul 2", details:[
         {k:"Room", v:"Bauhi Room"},
         {k:"Address", v:"20 Derb Ouali Kaat Benahid, Marrakech Medina"},
+        {k:"Check-out", v:"Jul 2"},
       ]},
       { type:"flight", status:"confirmed", label:"✈️ Marrakesh → Madrid", date:"Thu Jul 2", details:[
-        {k:"Flight", v:"IB1852 · RAK→MAD · 1:00PM–4:00PM · Conf: CLF3Z5"},
-        {k:"With", v:"Adria, Kelly, Kathryn, Claire"},
+        {k:"Flight", v:"IB1852 · RAK→MAD · 1:00PM"},
+        {k:"Arrives Madrid", v:"Thu Jul 2 · 4:00PM"},
+        {k:"Confirmation", v:"CLF3Z5"},
+        {k:"Note", v:"Karnell's 40th Birthday! 🎂"},
       ]},
       { type:"hotel", status:"confirmed", label:"🏨 UMusic Hotel Madrid", date:"Jul 2–3", details:[
         {k:"Room", v:"TBD"},
         {k:"Address", v:"Calle de la Paz, Sol · Madrid"},
-        {k:"Note", v:"Karnell's 40th Birthday! 🎂"},
       ]},
       { type:"flight", status:"confirmed", label:"✈️ Madrid → Split", date:"Fri Jul 3", details:[
-        {k:"Flight 1", v:"LH1123 · MAD→FRA · 8:25AM–11:00AM"},
-        {k:"Flight 2", v:"LH6004 · FRA→SPU · 12:05PM–1:45PM"},
-        {k:"Confirmation", v:"H-N-KM4MF8 · Capital One Travel"},
+        {k:"Flight", v:"LH1123 · MAD→FRA · 8:25AM"},
+        {k:"Arrives Frankfurt", v:"Fri Jul 3 · 11:00AM"},
+        {k:"Connecting", v:"LH6004 · FRA→SPU · 12:05PM–1:45PM"},
+        {k:"Booked via", v:"Capital One Travel · Conf: H-N-KM4MF8"},
       ]},
       { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
         {k:"Cabin", v:"T2 · Main Cabin (Birthday Boy! 🎂)"},
@@ -625,7 +633,7 @@ const GUEST_ITIN = {
       ]},
       { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
         {k:"Flight", v:"TBD"},
-        {k:"From", v:"Dubrovnik (DBV)"},
+        {k:"Departs", v:"Dubrovnik (DBV)"},
         {k:"Note", v:"No flights before noon Jul 11"},
       ]},
     ]
@@ -633,165 +641,215 @@ const GUEST_ITIN = {
   "Kelly": {
     legs: [
       { type:"flight", status:"confirmed", label:"✈️ Portland → Marrakesh", date:"Sun Jun 28", details:[
-        {k:"Flight 1", v:"AA2933 · PDX→ORD · 6:00AM–12:06PM"},
-        {k:"Flight 2", v:"Iberia 8754 · ORD→MAD · 4:30PM–7:55AM+1"},
-        {k:"Connecting", v:"MAD→RAK · IB8647 · 11:20AM–12:20PM"},
-        {k:"With", v:"Karnell"},
+        {k:"Flight", v:"AA2933 · PDX→ORD · 6:00AM"},
+        {k:"Arrives Chicago", v:"Sun Jun 28 · 12:06PM"},
+        {k:"Connecting", v:"Iberia 8754 · ORD→MAD · 4:30PM–7:55AM+1"},
+        {k:"Connecting", v:"IB8647 · MAD→RAK · 11:20AM–12:20PM"},
+        {k:"Traveling with", v:"Karnell"},
       ]},
       { type:"hotel", status:"confirmed", label:"🏨 Riad Dar Assiya · Marrakesh", date:"Jun 29 – Jul 2", details:[
         {k:"Room", v:"Bauhi Room (w/ Karnell)"},
+        {k:"Check-out", v:"Jul 2"},
       ]},
       { type:"flight", status:"confirmed", label:"✈️ Marrakesh → Madrid", date:"Thu Jul 2", details:[
-        {k:"Flight", v:"IB1852 · RAK→MAD · 1:00PM–4:00PM · Conf: CLF3Z5"},
+        {k:"Flight", v:"IB1852 · RAK→MAD · 1:00PM"},
+        {k:"Arrives Madrid", v:"Thu Jul 2 · 4:00PM"},
+        {k:"Confirmation", v:"CLF3Z5"},
       ]},
       { type:"hotel", status:"confirmed", label:"🏨 UMusic Hotel Madrid", date:"Jul 2–3", details:[
         {k:"Room", v:"TBD"},
+        {k:"Address", v:"Calle de la Paz, Sol · Madrid"},
       ]},
       { type:"flight", status:"confirmed", label:"✈️ Madrid → Split", date:"Fri Jul 3", details:[
-        {k:"Flight 1", v:"LH1123 · MAD→FRA · 8:25AM–11:00AM"},
-        {k:"Flight 2", v:"LH6004 · FRA→SPU · 12:05PM–1:45PM"},
-        {k:"Confirmation", v:"H-N-KM4MF8 · Capital One Travel"},
+        {k:"Flight", v:"LH1123 · MAD→FRA · 8:25AM"},
+        {k:"Arrives Frankfurt", v:"Fri Jul 3 · 11:00AM"},
+        {k:"Connecting", v:"LH6004 · FRA→SPU · 12:05PM–1:45PM"},
+        {k:"Booked via", v:"Capital One Travel · Conf: H-N-KM4MF8"},
       ]},
       { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
         {k:"Cabin", v:"T2 · Main Cabin (w/ Karnell)"},
         {k:"Boards", v:"Split · Jul 4 · 1:00PM"},
+        {k:"Disembarks", v:"Split · Jul 11 · morning"},
       ]},
       { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-        {k:"Flight", v:"TBD · From DBV"},
+        {k:"Flight", v:"TBD"},
+        {k:"Departs", v:"Dubrovnik (DBV)"},
         {k:"Note", v:"No flights before noon Jul 11"},
       ]},
     ]
   },
   "Conley": {
     legs: [
-      { type:"flight", status:"tbd", label:"✈️ Flight to Madrid", date:"TBD", details:[{k:"Flight", v:"TBD"}]},
+      { type:"flight", status:"tbd", label:"✈️ Home → Madrid", date:"TBD", details:[
+        {k:"Flight", v:"TBD"},
+        {k:"Arrives Madrid", v:"TBD"},
+      ]},
       { type:"hotel", status:"confirmed", label:"🏨 The Madrid EDITION", date:"TBD dates", details:[
+        {k:"Room", v:"TBD"},
         {k:"Sharing with", v:"Rey"},
         {k:"Address", v:"Plaza de las Descalzas · Madrid"},
       ]},
-      { type:"flight", status:"tbd", label:"✈️ Madrid → Split · Direct", date:"Thu Jul 2", details:[
-        {k:"Flight", v:"TBD · Direct flight"},
-        {k:"Note", v:"Arriving Split Jul 2"},
+      { type:"flight", status:"tbd", label:"✈️ Madrid → Split", date:"Thu Jul 2", details:[
+        {k:"Flight", v:"TBD · Direct"},
+        {k:"Arrives Split", v:"Thu Jul 2 · TBD"},
+        {k:"Note", v:"Arriving Split Jul 2 — one day before boarding"},
       ]},
       { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
         {k:"Cabin", v:"T3 (w/ Rey)"},
         {k:"Boards", v:"Split · Jul 4 · 1:00PM"},
+        {k:"Disembarks", v:"Split · Jul 11 · morning"},
       ]},
       { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-        {k:"Flight", v:"TBD · From DBV"},
+        {k:"Flight", v:"TBD"},
+        {k:"Departs", v:"Dubrovnik (DBV)"},
         {k:"Note", v:"No flights before noon Jul 11"},
       ]},
     ]
   },
   "Rey": {
     legs: [
-      { type:"flight", status:"tbd", label:"✈️ Flight to Madrid", date:"TBD", details:[{k:"Flight", v:"TBD"}]},
+      { type:"flight", status:"tbd", label:"✈️ Home → Madrid", date:"TBD", details:[
+        {k:"Flight", v:"TBD"},
+        {k:"Arrives Madrid", v:"TBD"},
+      ]},
       { type:"hotel", status:"confirmed", label:"🏨 The Madrid EDITION", date:"TBD dates", details:[
+        {k:"Room", v:"TBD"},
         {k:"Sharing with", v:"Conley"},
         {k:"Address", v:"Plaza de las Descalzas · Madrid"},
       ]},
-      { type:"flight", status:"tbd", label:"✈️ Madrid → Split · Direct", date:"Thu Jul 2", details:[
-        {k:"Flight", v:"TBD · Direct flight"},
+      { type:"flight", status:"tbd", label:"✈️ Madrid → Split", date:"Thu Jul 2", details:[
+        {k:"Flight", v:"TBD · Direct"},
+        {k:"Arrives Split", v:"Thu Jul 2 · TBD"},
       ]},
       { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
         {k:"Cabin", v:"T3 (w/ Conley)"},
         {k:"Boards", v:"Split · Jul 4 · 1:00PM"},
+        {k:"Disembarks", v:"Split · Jul 11 · morning"},
       ]},
       { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-        {k:"Flight", v:"TBD · From DBV"},
+        {k:"Flight", v:"TBD"},
+        {k:"Departs", v:"Dubrovnik (DBV)"},
+        {k:"Note", v:"No flights before noon Jul 11"},
       ]},
     ]
   },
   "Dex": {
     legs: [
       { type:"flight", status:"confirmed", label:"✈️ Portland → Amsterdam → Split", date:"Thu Jul 2–3", details:[
-        {k:"Flight 1", v:"DL9219 · PDX→AMS · Jul 2 1:05PM–Jul 3 7:40AM"},
-        {k:"Flight 2", v:"DL9406 · AMS→SPU · Jul 3 10:00AM–12:05PM"},
-        {k:"With", v:"Deloria"},
+        {k:"Flight", v:"DL9219 · PDX→AMS · Jul 2 1:05PM"},
+        {k:"Arrives Amsterdam", v:"Fri Jul 3 · 7:40AM"},
+        {k:"Connecting", v:"DL9406 · AMS→SPU · 10:00AM–12:05PM"},
+        {k:"Traveling with", v:"Deloria"},
       ]},
       { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
         {k:"Cabin", v:"T4 (w/ Deloria)"},
         {k:"Boards", v:"Split · Jul 4 · 1:00PM"},
+        {k:"Disembarks", v:"Split · Jul 11 · morning"},
       ]},
       { type:"flight", status:"confirmed", label:"✈️ Dubrovnik → Amsterdam → Portland", date:"Sun Jul 12", details:[
-        {k:"Flight 1", v:"DL7461 · DBV→AMS · 6:30AM–9:00AM"},
-        {k:"Flight 2", v:"DL9216 · AMS→PDX · 10:25AM–11:10AM"},
-        {k:"Note", v:"Jul 12 — overnight in Dubrovnik needed after Jul 11 disembark"},
+        {k:"Flight", v:"DL7461 · DBV→AMS · 6:30AM"},
+        {k:"Arrives Amsterdam", v:"Sun Jul 12 · 9:00AM"},
+        {k:"Connecting", v:"DL9216 · AMS→PDX · 10:25AM–11:10AM"},
+        {k:"Note", v:"Jul 12 departure — overnight in Dubrovnik needed after Jul 11 disembark"},
       ]},
     ]
   },
   "Deloria": {
     legs: [
       { type:"flight", status:"confirmed", label:"✈️ Portland → Amsterdam → Split", date:"Thu Jul 2–3", details:[
-        {k:"Flight 1", v:"DL9219 · PDX→AMS · Jul 2 1:05PM–Jul 3 7:40AM"},
-        {k:"Flight 2", v:"DL9406 · AMS→SPU · Jul 3 10:00AM–12:05PM"},
-        {k:"With", v:"Dex"},
+        {k:"Flight", v:"DL9219 · PDX→AMS · Jul 2 1:05PM"},
+        {k:"Arrives Amsterdam", v:"Fri Jul 3 · 7:40AM"},
+        {k:"Connecting", v:"DL9406 · AMS→SPU · 10:00AM–12:05PM"},
+        {k:"Traveling with", v:"Dex"},
       ]},
       { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
         {k:"Cabin", v:"T4 (w/ Dex)"},
         {k:"Boards", v:"Split · Jul 4 · 1:00PM"},
+        {k:"Disembarks", v:"Split · Jul 11 · morning"},
       ]},
       { type:"flight", status:"confirmed", label:"✈️ Dubrovnik → Amsterdam → Portland", date:"Sun Jul 12", details:[
-        {k:"Flight 1", v:"DL7461 · DBV→AMS · 6:30AM–9:00AM"},
-        {k:"Flight 2", v:"DL9216 · AMS→PDX · 10:25AM–11:10AM"},
-        {k:"Note", v:"Jul 12 — overnight in Dubrovnik needed"},
+        {k:"Flight", v:"DL7461 · DBV→AMS · 6:30AM"},
+        {k:"Arrives Amsterdam", v:"Sun Jul 12 · 9:00AM"},
+        {k:"Connecting", v:"DL9216 · AMS→PDX · 10:25AM–11:10AM"},
+        {k:"Note", v:"Jul 12 departure — overnight in Dubrovnik needed after Jul 11 disembark"},
       ]},
     ]
   },
   "Kathryn": {
     legs: [
-      { type:"flight", status:"tbd", label:"✈️ Flight to Marrakesh", date:"TBD", details:[{k:"Flight", v:"TBD"}]},
+      { type:"flight", status:"tbd", label:"✈️ Home → Marrakesh", date:"TBD", details:[
+        {k:"Flight", v:"TBD"},
+        {k:"Arrives Marrakesh", v:"TBD"},
+      ]},
       { type:"hotel", status:"confirmed", label:"🏨 Riad Dar Assiya · Marrakesh", date:"Jun 29 – Jul 2", details:[
         {k:"Room", v:"TBD"},
+        {k:"Check-out", v:"Jul 2"},
       ]},
       { type:"flight", status:"confirmed", label:"✈️ Marrakesh → Madrid", date:"Thu Jul 2", details:[
-        {k:"Flight", v:"IB1852 · RAK→MAD · 1:00PM–4:00PM · Conf: CLF3Z5"},
+        {k:"Flight", v:"IB1852 · RAK→MAD · 1:00PM"},
+        {k:"Arrives Madrid", v:"Thu Jul 2 · 4:00PM"},
+        {k:"Confirmation", v:"CLF3Z5"},
       ]},
       { type:"hotel", status:"confirmed", label:"🏨 UMusic Hotel Madrid", date:"Jul 2–3", details:[
         {k:"Room", v:"TBD"},
+        {k:"Address", v:"Calle de la Paz, Sol · Madrid"},
       ]},
       { type:"flight", status:"tbd", label:"✈️ Madrid → Split", date:"Fri Jul 3", details:[
         {k:"Flight", v:"TBD"},
+        {k:"Arrives Split", v:"Fri Jul 3 · TBD"},
       ]},
       { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
         {k:"Cabin", v:"T6 (w/ Francois)"},
         {k:"Boards", v:"Split · Jul 4 · 1:00PM"},
+        {k:"Disembarks", v:"Split · Jul 11 · morning"},
       ]},
       { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-        {k:"Flight", v:"TBD · From DBV"},
+        {k:"Flight", v:"TBD"},
+        {k:"Departs", v:"Dubrovnik (DBV)"},
+        {k:"Note", v:"No flights before noon Jul 11"},
       ]},
     ]
   },
   "Francois": {
     legs: [
-      { type:"flight", status:"tbd", label:"✈️ Flight to Madrid", date:"TBD", details:[{k:"Flight", v:"TBD"}]},
+      { type:"flight", status:"tbd", label:"✈️ Home → Madrid", date:"TBD", details:[
+        {k:"Flight", v:"TBD"},
+        {k:"Arrives Madrid", v:"TBD"},
+      ]},
       { type:"hotel", status:"confirmed", label:"🏨 UMusic Hotel Madrid", date:"Jul 2–3", details:[
         {k:"Room", v:"TBD"},
+        {k:"Address", v:"Calle de la Paz, Sol · Madrid"},
       ]},
       { type:"flight", status:"tbd", label:"✈️ Madrid → Split", date:"Fri Jul 3", details:[
         {k:"Flight", v:"TBD"},
+        {k:"Arrives Split", v:"Fri Jul 3 · TBD"},
       ]},
       { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
         {k:"Cabin", v:"T6 (w/ Kathryn)"},
         {k:"Boards", v:"Split · Jul 4 · 1:00PM"},
+        {k:"Disembarks", v:"Split · Jul 11 · morning"},
       ]},
       { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-        {k:"Flight", v:"TBD · From DBV"},
+        {k:"Flight", v:"TBD"},
+        {k:"Departs", v:"Dubrovnik (DBV)"},
+        {k:"Note", v:"No flights before noon Jul 11"},
       ]},
     ]
   },
   "Bre": {
     legs: [
       { type:"flight", status:"confirmed", label:"✈️ Amsterdam → Split", date:"Fri Jul 3", details:[
-        {k:"Flight", v:"OU451 · AMS→SPU · 11:20AM–3:10PM"},
+        {k:"Flight", v:"OU451 · AMS→SPU · 11:20AM"},
+        {k:"Arrives Split", v:"Fri Jul 3 · 3:10PM"},
       ]},
       { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
         {k:"Cabin", v:"L1 · Solo"},
         {k:"Boards", v:"Split · Jul 4 · 1:00PM"},
+        {k:"Disembarks", v:"Split · Jul 11 · morning"},
       ]},
       { type:"flight", status:"confirmed", label:"✈️ Return Home from Dubrovnik", date:"Sat Jul 11", details:[
         {k:"Flight", v:"AA7058 · DBV · 1:05PM"},
-        {k:"Destination", v:"TBD"},
+        {k:"Arrives", v:"TBD"},
       ]},
     ]
   },
@@ -799,15 +857,19 @@ const GUEST_ITIN = {
     legs: [
       { type:"flight", status:"confirmed", label:"✈️ Flight to Split", date:"Sat Jul 4", details:[
         {k:"Flight", v:"OU417 · 11:50AM"},
-        {k:"Departure", v:"TBD"},
-        {k:"With", v:"Christen"},
+        {k:"Departs", v:"TBD"},
+        {k:"Arrives Split", v:"Sat Jul 4 · TBD"},
+        {k:"Traveling with", v:"Christen"},
       ]},
       { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
         {k:"Cabin", v:"L4 · Solo"},
         {k:"Boards", v:"Split · Jul 4 · 1:00PM"},
+        {k:"Disembarks", v:"Split · Jul 11 · morning"},
       ]},
       { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-        {k:"Flight", v:"TBD · From DBV"},
+        {k:"Flight", v:"TBD"},
+        {k:"Departs", v:"Dubrovnik (DBV)"},
+        {k:"Note", v:"No flights before noon Jul 11"},
       ]},
     ]
   },
@@ -815,31 +877,43 @@ const GUEST_ITIN = {
     legs: [
       { type:"flight", status:"confirmed", label:"✈️ Flight to Split", date:"Sat Jul 4", details:[
         {k:"Flight", v:"OU417 · 11:50AM"},
-        {k:"Departure", v:"TBD"},
-        {k:"With", v:"Chelsea"},
+        {k:"Departs", v:"TBD"},
+        {k:"Arrives Split", v:"Sat Jul 4 · TBD"},
+        {k:"Traveling with", v:"Chelsea"},
       ]},
       { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
         {k:"Cabin", v:"L5 · Solo"},
         {k:"Boards", v:"Split · Jul 4 · 1:00PM"},
+        {k:"Disembarks", v:"Split · Jul 11 · morning"},
       ]},
       { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-        {k:"Flight", v:"TBD · From DBV"},
+        {k:"Flight", v:"TBD"},
+        {k:"Departs", v:"Dubrovnik (DBV)"},
+        {k:"Note", v:"No flights before noon Jul 11"},
       ]},
     ]
   },
   "Akilah": {
     legs: [
-      { type:"flight", status:"tbd", label:"✈️ Flight to Split", date:"Fri Jul 3", details:[{k:"Flight", v:"TBD"}]},
+      { type:"flight", status:"tbd", label:"✈️ Home → Split", date:"Fri Jul 3", details:[
+        {k:"Flight", v:"TBD"},
+        {k:"Arrives Split", v:"Fri Jul 3 · TBD"},
+      ]},
       { type:"hotel", status:"confirmed", label:"🏨 AC Hotel by Marriott Split", date:"Jul 3 (1 night)", details:[
+        {k:"Room", v:"TBD"},
         {k:"Sharing with", v:"Adria"},
         {k:"Note", v:"Dalmatia Tower — tallest building in Croatia"},
+        {k:"Check-out", v:"Jul 4 · Board yacht at 1PM"},
       ]},
       { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
         {k:"Cabin", v:"T10 · Solo"},
         {k:"Boards", v:"Split · Jul 4 · 1:00PM"},
+        {k:"Disembarks", v:"Split · Jul 11 · morning"},
       ]},
       { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-        {k:"Flight", v:"TBD · From DBV"},
+        {k:"Flight", v:"TBD"},
+        {k:"Departs", v:"Dubrovnik (DBV)"},
+        {k:"Note", v:"No flights before noon Jul 11"},
       ]},
     ]
   },
@@ -912,7 +986,7 @@ function renderMyInfo() {
         <div class="it-name">${g.full}</div>
         <div class="it-role">${g.role}</div>
       </div>
-      <div class="it-legs-count">${itin.legs.length} legs</div>
+      <div class="it-legs-count" style="display:none">${itin.legs.length} legs</div>
     </div>
     <div class="it-notice">📧 Missing a flight? Send details to <strong>karnellblack@gmail.com</strong> or <strong>adria_toliver@yahoo.com</strong></div>
     <div class="it-legs">${legCards}</div>`;
