@@ -356,7 +356,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
       <p class="hero-sub">Split → Dubrovnik · July 4–11, 2026 · Vaya Adventures</p>
     </div>
     <div class="hero-stats">
-      <div class="hs"><div class="hs-num">22</div><div class="hs-lbl">Guests</div></div>
+      <div class="hs"><div class="hs-num">20</div><div class="hs-lbl">Guests</div></div>
       <div class="hs"><div class="hs-num">18</div><div class="hs-lbl">Cabins</div></div>
       <div class="hs"><div class="hs-num">8</div><div class="hs-lbl">Days</div></div>
       <div class="hs"><div class="hs-num">$4,550</div><div class="hs-lbl">Per Person</div></div>
@@ -372,17 +372,13 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
   </div>
   <span class="cd-lbl">🇭🇷 M/S San Spirito awaits!</span>
 </div>
-<div class="due-banner" id="dueBannerEl" style="display:none">
-  <span class="due-text">💳 <strong>Final payment due April 5, 2026</strong> · Balance varies by guest — see Payments tab</span>
-  <span class="due-pill" id="duePill">Loading…</span>
-</div>
 <nav class="tabs-nav" id="tabsNav" style="display:none">
   <button class="tab-btn" onclick="sw('myinfo',this)" id="myInfoTabBtn">👤 My Info</button>
   <button class="tab-btn" onclick="sw('pretrip',this)">🇲🇦 Morocco</button>
   <button class="tab-btn" onclick="sw('spain',this)">🇪🇸 Spain</button>
   <button class="tab-btn" onclick="sw('split',this)">🇭🇷 Split</button>
   <button class="tab-btn active" onclick="sw('itinerary',this)">⛵ Yacht Week</button>
-  <button class="tab-btn" onclick="sw('posttrip',this)">🇲🇪 Post-Trip</button>
+  <button class="tab-btn" onclick="sw('posttrip',this)">🇲🇪 Montenegro</button>
   <button class="tab-btn" onclick="sw('weather',this)">🌤️ Weather</button>
   <button class="tab-btn" onclick="sw('packing',this)">🎒 Packing</button>
   <button class="tab-btn" onclick="sw('cabins',this)">🛳️ Cabins</button>
@@ -419,12 +415,12 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
   </div>
   <div class="tab-panel" id="tab-flights">
     <div class="sec-title">Flights</div>
-    <div class="sec-desc">Send details to karnellblack@gmail.com or adria_toliver@yahoo.com</div>
+    <div class="sec-desc">Send details to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="036862716d666f6f616f62606843646e626a6f2d606c6e">[email&#160;protected]</a> or <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="debfbaacb7bf81aab1b2b7a8bbac9ea7bfb6b1b1f0bdb1b3">[email&#160;protected]</a></div>
     <div class="flt-wrap" id="flightsEl"></div>
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── FIREBASE CONFIG ──
 const firebaseConfig = {
   apiKey: "AIzaSyD87zoDvwLQVChv4tdLuLu6ZRhtKaLvnHo",
@@ -515,7 +511,7 @@ auth.onAuthStateChanged(user => {
     currentUser = null;
     guestIdx = -1;
     document.getElementById('authScreen').style.display = 'flex';
-    ['mainContent','cdBar','dueBannerEl','tabsNav','tabContent','userBar'].forEach(id => {
+    ['mainContent','cdBar','tabsNav','tabContent','userBar'].forEach(id => {
       document.getElementById(id).style.display = 'none';
     });
   }
@@ -554,7 +550,7 @@ function signOut() {
 
 function showApp(user) {
   document.getElementById('authScreen').style.display = 'none';
-  ['mainContent','cdBar','dueBannerEl','tabsNav','tabContent','userBar'].forEach(id => {
+  ['mainContent','cdBar','tabsNav','tabContent','userBar'].forEach(id => {
     document.getElementById(id).style.display = '';
   });
   document.getElementById('userAv').src = user.photoURL || '';
@@ -1527,17 +1523,6 @@ const PACK=[
 
 // ── ITINERARY DATA ──
 const ITIN=[
-  {day:"2",ds:"Thu Jul 2",cls:"bk",bday:"k",badge:null,loc:"🎂 Karnell's Birthday — Madrid!",title:"Karnell Turns 40 in Madrid!",acts:[
-    {t:"Celebrate",i:"🎂",x:"Happy 40th Karnell! Dinner at Akiro Hand Roll — no reservations, arrive early!",g:"🎂",gc:"tc2"},
-    {t:"Evening",i:"🌇",x:"Rooftop cocktails at UMusic Casa Chicote",g:"Drinks",gc:"tf"},
-    {t:"Vibes",i:"🎵",x:"Live music at Teatro Albéniz — right inside the hotel",g:"Nightlife",gc:"tc2"},
-  ]},
-  {day:"3",ds:"Fri Jul 3",cls:"",bday:null,badge:null,loc:"✈️ Fly to Split, Croatia",title:"Travel Day — Yacht Eve!",acts:[
-    {t:"Morning",i:"✈️",x:"Adria/Karnell/Kelly: MAD→FRA (LH1123 8:25AM) → SPU (LH6004 12:05PM arr 1:45PM)",g:"Flight",gc:"ty"},
-    {t:"Morning",i:"✈️",x:"Dex & Deloria: AMS→SPU (DL9406 10:00AM, arrives 12:05PM)",g:"Flight",gc:"ty"},
-    {t:"Afternoon",i:"✈️",x:"Bre: AMS→SPU (OU451 11:20AM, arrives 3:10PM)",g:"Flight",gc:"ty"},
-    {t:"Evening",i:"🏙️",x:"Explore Split — Diocletian's Palace & Riva waterfront",g:"Explore",gc:"te"},
-  ]},
   {day:"4",ds:"Sat Jul 4",cls:"",bday:null,badge:"DAY 1",loc:"⛵ Board M/S San Spirito · Split",title:"Day 1 — All Aboard!",acts:[
     {t:"Morning",i:"🏙️",x:"Free time in Split — explore Diocletian's Palace",g:"Explore",gc:"te"},
     {t:"1:00 PM",i:"🛳️",x:"BOARD M/S San Spirito — welcome! Cabin assignments, briefing, meet the crew",g:"Board ⚓",gc:"ty"},
@@ -2027,16 +2012,19 @@ function tick(){
   document.getElementById('cdM').textContent=Math.floor((diff%3600000)/60000);
 }
 function updateDuePill(){
-  const diff=Math.ceil((new Date('2026-04-05')-new Date())/(864e5));
-  const p=document.getElementById('duePill');
-  if(diff<0){p.textContent='Deadline passed';p.style.background='rgba(184,48,48,.35)';}
-  else if(diff===0){p.textContent='Due TODAY!';}
-  else if(diff<=14){p.textContent=diff+' days left ⚠️';}
-  else{p.textContent=diff+' days to go';}
+  // Due banner removed — no-op
 }
 
 function renderAll(){
-  renderItinerary();renderCabins();renderFlights();renderPretrip();renderSpain();renderSplit();renderWeather();renderPosttrip();
+  renderItinerary();
+  renderPayments();
+  renderCabins();
+  renderFlights();
+  renderPretrip();
+  renderSpain();
+  renderSplit();
+  renderWeather();
+  renderPosttrip();
 }
 </script>
 </body>
