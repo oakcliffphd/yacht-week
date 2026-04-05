@@ -378,10 +378,12 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
 </div>
 <nav class="tabs-nav" id="tabsNav" style="display:none">
   <button class="tab-btn" onclick="sw('myinfo',this)" id="myInfoTabBtn">👤 My Info</button>
-  <button class="tab-btn" onclick="sw('pretrip',this)">🇲🇦 Pre-Trip</button>
+  <button class="tab-btn" onclick="sw('pretrip',this)">🇲🇦 Morocco</button>
+  <button class="tab-btn" onclick="sw('spain',this)">🇪🇸 Spain</button>
+  <button class="tab-btn" onclick="sw('split',this)">🇭🇷 Split</button>
   <button class="tab-btn active" onclick="sw('itinerary',this)">⛵ Yacht Week</button>
   <button class="tab-btn" onclick="sw('posttrip',this)">🇲🇪 Post-Trip</button>
-  <button class="tab-btn" onclick="sw('payments',this)">💳 Payments</button>
+  <button class="tab-btn" onclick="sw('weather',this)">🌤️ Weather</button>
   <button class="tab-btn" onclick="sw('packing',this)">🎒 Packing</button>
   <button class="tab-btn" onclick="sw('cabins',this)">🛳️ Cabins</button>
   <button class="tab-btn" onclick="sw('flights',this)">✈️ Flights</button>
@@ -389,25 +391,20 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
 <div class="content" id="tabContent" style="display:none">
   <div class="tab-panel" id="tab-myinfo"><div id="myInfoInner"></div></div>
   <div class="tab-panel" id="tab-pretrip"><div id="pretripInner"></div></div>
+  <div class="tab-panel" id="tab-spain"><div id="spainInner"></div></div>
+  <div class="tab-panel" id="tab-split"><div id="splitInner"></div></div>
   <div class="tab-panel active" id="tab-itinerary">
     <div class="sec-title">Yacht Week Itinerary</div>
     <div class="sec-desc">M/S San Spirito · July 4–11, 2026 · Vaya Adventures</div>
     <div class="itin" id="itinEl"></div>
     <div class="addon-box"><div class="addon-title">✨ Add-On Experiences</div><div class="addon-cards">
-      <div class="addon-card"><div class="ac-title">🇲🇦 Marrakesh, Morocco</div><div class="ac-dates">June 29 – July 3</div><div class="ac-desc">Pre-trip for those extending the adventure before Split.</div></div>
+      <div class="addon-card"><div class="ac-title">🇲🇦 Marrakesh, Morocco</div><div class="ac-dates">June 29 – July 2</div><div class="ac-desc">Pre-trip for Adria, Karnell, Kelly & Claire.</div></div>
+      <div class="addon-card"><div class="ac-title">🇪🇸 Madrid, Spain</div><div class="ac-dates">July 2–3</div><div class="ac-desc">Karnell's 40th birthday celebration!</div></div>
       <div class="addon-card"><div class="ac-title">🇲🇪 Kotor, Montenegro</div><div class="ac-dates">July 11–15</div><div class="ac-desc">Post-trip after disembarking — Bay of Kotor awaits.</div></div>
     </div></div>
   </div>
   <div class="tab-panel" id="tab-posttrip"><div id="posttripInner"></div></div>
-  <div class="tab-panel" id="tab-payments">
-    <div class="sec-title">Payment Tracker</div>
-    <div class="sec-desc">TravelJoy balances · Final payment due April 5, 2026</div>
-    <div class="pay-deadline"><div class="pdl-title">💳 Payment Schedule — $4,550 per person</div><div class="milestones" id="msEl"></div></div>
-    <div class="pay-sum" id="paySumEl"></div>
-    <div class="op"><div class="oph"><span class="opt">Overall collection progress</span><span class="opp" id="opPct">–</span></div><div class="ob2"><div class="of2" id="opFill" style="width:0%"></div></div><div class="os" id="opSub"></div></div>
-    <div class="pay-filter"><button class="fb active" onclick="fp('all',this)">All (22)</button><button class="fb" onclick="fp('paid',this)">✓ Paid</button><button class="fb" onclick="fp('partial',this)">⏳ Partial</button></div>
-    <div class="pay-grid" id="payGridEl"></div>
-  </div>
+  <div class="tab-panel" id="tab-weather"><div id="weatherInner"></div></div>
   <div class="tab-panel" id="tab-packing">
     <div class="sec-title">Packing List</div>
     <div class="sec-desc">Yacht-specific · tick items as you pack · syncs to your device only</div>
@@ -422,7 +419,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
   </div>
   <div class="tab-panel" id="tab-flights">
     <div class="sec-title">Flights</div>
-    <div class="sec-desc">Send details to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d5beb4a7bbb0b9b9b7b9b4b6be95b2b8b4bcb9fbb6bab8">[email&#160;protected]</a> or <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e8898c9a8189b79c8784819e8d9aa89189808787c68b8785">[email&#160;protected]</a></div>
+    <div class="sec-desc">Send details to karnellblack@gmail.com or adria_toliver@yahoo.com</div>
     <div class="flt-wrap" id="flightsEl"></div>
   </div>
 </div>
@@ -481,11 +478,9 @@ const GUESTS = [
   {n:"Akilah",   full:"Akilah Mahon",     i:"AK",c:"#6b5ba4",role:"Guest · solo cabin",       paid:3010,owed:4550,status:"partial", bd:[["Paid","$3,010"],["Balance","$1,540"]],         trips:["split","yacht"]},
   {n:"Bre",      full:"Breoshshala Martin",i:"BR",c:"#3a8a6a",role:"Guest · solo cabin",      paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
   {n:"Lauren",   full:"Lauren Guerrido",  i:"LA",c:"#8a6a2a",role:"Guest · solo cabin",       paid:1100,owed:4550,status:"partial", bd:[["Paid","$1,100"],["Balance","$3,450"]],         trips:["yacht"]},
-  {n:"Oneika",   full:"Oneika Barrett",   i:"ON",c:"#2a7a8a",role:"Guest · solo cabin",       paid:1350,owed:4550,status:"partial", bd:[["Paid","$1,350"],["Balance","$3,200"]],         trips:["yacht"]},
   {n:"Chelsea",  full:"Chelsea Fegans",   i:"CH",c:"#9a3a4a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
   {n:"Christen", full:"Christen Sutton",  i:"CR",c:"#4a7a4a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
   {n:"Morgan",   full:"Morgan Polk",      i:"MO",c:"#7a4a8a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
-  {n:"Syreeta",  full:"Syreeta Green",    i:"SY",c:"#1a7a5a",role:"Guest · solo cabin",       paid:3750,owed:4550,status:"partial", bd:[["Paid","$3,750"],["Balance","$800"]],           trips:["yacht"]},
 ];
 
 // Guest email map — maps email → guest index
@@ -1268,31 +1263,6 @@ const GUEST_ITIN = {
       {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
     ]},
   ]},
-  "Oneika": { legs: [
-    { type:"flight", status:"tbd", label:"✈️ Home → Split", date:"Fri Jul 3 or Sat Jul 4", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"Split (SPU) · TBD"},
-      {k:"Connecting",    v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
-    ]},
-    { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
-      {k:"Cabin",         v:"L3 · Solo"},
-      {k:"Boards",        v:"Split · Jul 4 · 1:00PM"},
-      {k:"Disembarks",    v:"Split · Jul 11 · morning"},
-    ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"TBD"},
-      {k:"Connecting",    v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
-    ]},
-  ]},
   "Chelsea": { legs: [
     { type:"flight", status:"confirmed", label:"✈️ Home → Split", date:"Sat Jul 4", details:[
       {k:"Record Locator", v:""},
@@ -1355,31 +1325,6 @@ const GUEST_ITIN = {
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
       {k:"Cabin",         v:"L6 · Solo"},
-      {k:"Boards",        v:"Split · Jul 4 · 1:00PM"},
-      {k:"Disembarks",    v:"Split · Jul 11 · morning"},
-    ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"TBD"},
-      {k:"Connecting",    v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
-    ]},
-  ]},
-  "Syreeta": { legs: [
-    { type:"flight", status:"tbd", label:"✈️ Home → Split", date:"Fri Jul 3 or Sat Jul 4", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"Split (SPU) · TBD"},
-      {k:"Connecting",    v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
-    ]},
-    { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
-      {k:"Cabin",         v:"L7 · Solo"},
       {k:"Boards",        v:"Split · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Split · Jul 11 · morning"},
     ]},
@@ -1663,8 +1608,8 @@ const CABINS=[
   {num:"L3",name:"Cabin L3",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[{idx:17,tag:"solo"}]},
   {num:"L4",name:"Cabin L4",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[{idx:18,tag:"solo"}]},
   {num:"L5",name:"Cabin L5",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[{idx:19,tag:"solo"}]},
-  {num:"L6",name:"Cabin L6",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[{idx:20,tag:"solo"}]},
-  {num:"L7",name:"Cabin L7",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[{idx:21,tag:"solo"}]},
+  {num:"L6",name:"Cabin L6",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[]},
+  {num:"L7",name:"Cabin L7",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[]},
   {num:"L8",name:"Crew Cabin",  color:"#7a8a9a",type:"Crew",  deck:"lower",guests:[]},
 ];
 
@@ -1838,10 +1783,10 @@ function renderPretrip(){
   const pax=arr=>arr.map(p=>`<span class="ptpax" style="background:${p.c}">${p.l}</span>`).join('');
   const fleg=(f,t,d)=>`<div class="pt-fleg"><div class="pt-fr"><span class="pt-fc">${f}</span><span class="pt-fa">→</span><span class="pt-fc">${t}</span></div><div class="pt-fd">${d}</div></div>`;
   document.getElementById('pretripInner').innerHTML=`
-    <div class="sec-title">Pre-Trip: Karnell's 40th Birthday</div>
-    <div class="sec-desc">Marrakesh → Madrid → Split · Jun 29 – Jul 3 · 5 travelers (Claire joins for Morocco only)</div>
-    <div class="pt-crew"><div class="pt-crew-lbl">Pre-Trip Guests</div><div class="pt-chips">
-      ${[{i:"AD",c:"#9a3a8a",n:"Adria"},{i:"KA",c:"#c4622d",n:"Karnell"},{i:"KE",c:"#c4622d",n:"Kelly"},{i:"KT",c:"#7a3a9a",n:"Kathryn"},{i:"CL",c:"#3a8a6a",n:"Claire (Morocco only)"}]
+    <div class="sec-title">Marrakech, Morocco: Karnell's 40th Birthday</div>
+    <div class="sec-desc">Marrakesh · Jun 29 – Jul 2</div>
+    <div class="pt-crew"><div class="pt-crew-lbl">Morocco Travelers</div><div class="pt-chips">
+      ${[{i:"AD",c:"#9a3a8a",n:"Adria"},{i:"KA",c:"#c4622d",n:"Karnell"},{i:"KE",c:"#c4622d",n:"Kelly"},{i:"CL",c:"#3a8a6a",n:"Claire"}]
         .map(c=>`<div class="ptchip" style="background:${c.c}"><span>${c.i}</span>${c.n}</div>`).join('')}
     </div></div>
     <div class="itin">
@@ -1850,14 +1795,14 @@ function renderPretrip(){
         <div class="pt-cards">
           <div class="pt-card"><div class="pt-chd">✈️ Karnell & Kelly — PDX→ORD→MAD→RAK</div><div class="pt-frow">${fleg('PDX','ORD','AA2933 · 6:00AM–12:06PM')}${fleg('ORD','MAD','Iberia 8754 · 4:30PM–7:55AM+1')}</div><div class="pt-pax">${pax([{c:"#c4622d",l:"KA Karnell"},{c:"#c4622d",l:"KE Kelly"}])}</div></div>
           <div class="pt-card"><div class="pt-chd">✈️ Adria — DFW→MAD</div><div class="pt-frow">${fleg('DFW','MAD','AA36 · 4:55PM–9:05AM+1 · Premium Economy')}</div><div class="pt-note">📌 Booked via Capital One Travel</div><div class="pt-pax">${pax([{c:"#9a3a8a",l:"AD Adria"}])}</div></div>
-          <div class="pt-card tbd"><div class="pt-chd">✈️ Kathryn & Claire — Flights TBD</div><div class="pt-pax">${pax([{c:"#7a3a9a",l:"KT Kathryn"},{c:"#3a8a6a",l:"CL Claire"}])}</div></div>
+          <div class="pt-card tbd"><div class="pt-chd">✈️ Claire — Flight TBD</div><div class="pt-pax">${pax([{c:"#3a8a6a",l:"CL Claire"}])}</div></div>
         </div>
       </div></div>
       <div class="day-row"><div class="day-spine"><div class="day-dot" style="background:linear-gradient(135deg,#c4622d,#e8825a)">29</div><div class="day-ds">Mon Jun 29</div></div><div class="day-body">
         <div class="day-loc">🇲🇦 Arrive Marrakesh, Morocco</div><div class="day-title">Welcome to the Medina</div>
         <div class="pt-cards">
-          <div class="pt-card"><div class="pt-chd">✈️ MAD→RAK · All crew</div><div class="pt-frow">${fleg('MAD','RAK','Iberia Express IB8647 · 11:20AM–12:20PM · Non-stop')}</div><div class="pt-note">ℹ️ Claire joins for Morocco only — departs home from Madrid after Jul 2</div><div class="pt-pax">${pax([{c:"#9a3a8a",l:"AD"},{c:"#c4622d",l:"KA"},{c:"#c4622d",l:"KE"},{c:"#7a3a9a",l:"KT"},{c:"#3a8a6a",l:"CL"}])}</div></div>
-          <div class="pt-card hotel"><div class="pt-chd">🏨 Riad Dar Assiya · Jun 29–Jul 2</div><div class="pt-hd">20 Derb Ouali Kaat Benahid, Marrakech Medina · darassiya.com</div><div class="pt-hdd">15th-century boutique riad · plunge pool · rooftop terrace · Atlas Mountain views</div><div class="pt-rooms"><div class="pt-rrow">${pax([{c:"#9a3a8a",l:"AD Adria"}])}<span class="pt-rn">Dueria Room</span></div><div class="pt-rrow">${pax([{c:"#c4622d",l:"KA Karnell"},{c:"#c4622d",l:"KE Kelly"}])}<span class="pt-rn">Bauhi Room</span></div><div class="pt-rrow">${pax([{c:"#7a3a9a",l:"KT Kathryn"},{c:"#3a8a6a",l:"CL Claire"}])}<span class="pt-rn tbd">Room TBD</span></div></div><div class="pt-contact">📞 +212 (0)5 24 38 21 80 · info@darassiya.com</div></div>
+          <div class="pt-card"><div class="pt-chd">✈️ MAD→RAK · All crew</div><div class="pt-frow">${fleg('MAD','RAK','Iberia Express IB8647 · 11:20AM–12:20PM · Non-stop')}</div><div class="pt-note">ℹ️ Claire departs home from Madrid after Jul 2</div><div class="pt-pax">${pax([{c:"#9a3a8a",l:"AD"},{c:"#c4622d",l:"KA"},{c:"#c4622d",l:"KE"},{c:"#3a8a6a",l:"CL"}])}</div></div>
+          <div class="pt-card hotel"><div class="pt-chd">🏨 Riad Dar Assiya · Jun 29–Jul 2</div><div class="pt-hd">20 Derb Ouali Kaat Benahid, Marrakech Medina · darassiya.com</div><div class="pt-hdd">15th-century boutique riad · plunge pool · rooftop terrace · Atlas Mountain views</div><div class="pt-rooms"><div class="pt-rrow">${pax([{c:"#9a3a8a",l:"AD Adria"}])}<span class="pt-rn">Dueria Room</span></div><div class="pt-rrow">${pax([{c:"#c4622d",l:"KA Karnell"},{c:"#c4622d",l:"KE Kelly"}])}<span class="pt-rn">Bauhi Room</span></div><div class="pt-rrow">${pax([{c:"#3a8a6a",l:"CL Claire"}])}<span class="pt-rn tbd">Room TBD</span></div></div><div class="pt-contact">📞 +212 (0)5 24 38 21 80 · info@darassiya.com</div></div>
         </div>
         <div class="acts">
           <div class="act"><span class="at">Afternoon</span><span class="ai">🕌</span><span class="ax">Walk toward Jemaa el-Fnaa — the main square · stop for your first Moroccan mint tea at a rooftop café</span></div>
@@ -1885,11 +1830,32 @@ function renderPretrip(){
         </div>
       </div></div>
       <div class="day-row"><div class="day-spine"><div class="day-dot bk">2</div><div class="day-ds">Thu Jul 2</div></div><div class="day-body">
-        <div class="day-loc">🎂 Marrakesh → Madrid — Karnell's Birthday!</div><div class="day-title">Karnell Turns 40 in Madrid!</div>
-        <div class="bb k" style="margin-bottom:10px">🎂 Happy 40th, Karnell! From the Medina to Madrid — what a way to celebrate!</div>
+        <div class="day-loc">🎂 Fly to Madrid — Karnell's Birthday!</div><div class="day-title">Karnell Turns 40 — Madrid Awaits!</div>
+        <div class="bb k" style="margin-bottom:10px">🎂 Happy 40th, Karnell! From the Medina to Madrid — see the Spain tab for tonight's celebrations!</div>
         <div class="pt-cards">
-          <div class="pt-card"><div class="pt-chd">✈️ RAK→MAD · All crew</div><div class="pt-frow">${fleg('RAK','MAD','Iberia Express IB1852 · 1:00PM–4:00PM · Conf: CLF3Z5')}</div><div class="pt-note">ℹ️ Claire departs home from Madrid after this flight</div><div class="pt-pax">${pax([{c:"#9a3a8a",l:"AD"},{c:"#c4622d",l:"KA"},{c:"#c4622d",l:"KE"},{c:"#7a3a9a",l:"KT"},{c:"#3a8a6a",l:"CL"}])}</div></div>
-          <div class="pt-card hotel"><div class="pt-chd">🏨 UMusic Hotel Madrid · Jul 2–3</div><div class="pt-hd">Calle de la Paz, Sol · Madrid · umusic-hotels.com</div><div class="pt-hdd">Historic Teatro Albéniz · Rooftop pool & bar · Live music · Steps from Puerta del Sol</div><div class="pt-rooms"><div class="pt-rrow">${pax([{c:"#9a3a8a",l:"AD Adria"}])}<span class="pt-rn">Room TBD</span><span class="pt-rc">Conf: #ZO-AX1030-82539 · Amex</span></div><div class="pt-rrow">${pax([{c:"#c4622d",l:"KA Karnell"},{c:"#c4622d",l:"KE Kelly"}])}<span class="pt-rn tbd">Room TBD</span></div><div class="pt-rrow">${pax([{c:"#7a3a9a",l:"KT Kathryn"}])}<span class="pt-rn tbd">Room TBD</span></div><div class="pt-rrow">${pax([{c:"#3a8a6a",l:"CL Claire"}])}<span class="pt-rn tbd">Room TBD</span><span class="pt-rc warn">Morocco only — departs home</span></div></div></div>
+          <div class="pt-card"><div class="pt-chd">✈️ RAK→MAD · All crew</div><div class="pt-frow">${fleg('RAK','MAD','Iberia Express IB1852 · 1:00PM–4:00PM · Conf: CLF3Z5')}</div><div class="pt-note">ℹ️ Claire departs home from Madrid after this flight</div><div class="pt-pax">${pax([{c:"#9a3a8a",l:"AD"},{c:"#c4622d",l:"KA"},{c:"#c4622d",l:"KE"},{c:"#3a8a6a",l:"CL"}])}</div></div>
+        </div>
+      </div></div>
+    </div>`;
+}
+
+// ── SPAIN TAB ──
+function renderSpain(){
+  const pax=arr=>arr.map(p=>`<span class="ptpax" style="background:${p.c}">${p.l}</span>`).join('');
+  const fleg=(f,t,d)=>`<div class="pt-fleg"><div class="pt-fr"><span class="pt-fc">${f}</span><span class="pt-fa">→</span><span class="pt-fc">${t}</span></div><div class="pt-fd">${d}</div></div>`;
+  document.getElementById('spainInner').innerHTML=`
+    <div class="sec-title">Madrid, Spain: Karnell's 40th Birthday</div>
+    <div class="sec-desc">Madrid · Jul 2 – Jul 3</div>
+    <div class="pt-crew"><div class="pt-crew-lbl">Spain Travelers</div><div class="pt-chips">
+      ${[{i:"AD",c:"#9a3a8a",n:"Adria"},{i:"KA",c:"#c4622d",n:"Karnell"},{i:"KE",c:"#c4622d",n:"Kelly"},{i:"CO",c:"#1a6b8a",n:"Conley"},{i:"RE",c:"#1a6b8a",n:"Rey"},{i:"FR",c:"#7a3a9a",n:"Francois"},{i:"KT",c:"#7a3a9a",n:"Kathryn"}]
+        .map(c=>`<div class="ptchip" style="background:${c.c}"><span>${c.i}</span>${c.n}</div>`).join('')}
+    </div></div>
+    <div class="itin">
+      <div class="day-row"><div class="day-spine"><div class="day-dot bk">2</div><div class="day-ds">Thu Jul 2</div></div><div class="day-body">
+        <div class="day-loc">🎂 Arrive Madrid — Karnell's Birthday!</div><div class="day-title">Karnell Turns 40 in Madrid!</div>
+        <div class="bb k" style="margin-bottom:10px">🎂 Happy 40th, Karnell! Madrid is yours tonight!</div>
+        <div class="pt-cards">
+          <div class="pt-card hotel"><div class="pt-chd">🏨 UMusic Hotel Madrid · Jul 2–3</div><div class="pt-hd">Calle de la Paz, Sol · Madrid · umusic-hotels.com</div><div class="pt-hdd">Historic Teatro Albéniz · Rooftop pool & bar · Live music · Steps from Puerta del Sol</div><div class="pt-rooms"><div class="pt-rrow">${pax([{c:"#9a3a8a",l:"AD Adria"}])}<span class="pt-rn">Room TBD</span><span class="pt-rc">Conf: #ZO-AX1030-82539 · Amex</span></div><div class="pt-rrow">${pax([{c:"#c4622d",l:"KA Karnell"},{c:"#c4622d",l:"KE Kelly"}])}<span class="pt-rn tbd">Room TBD</span></div><div class="pt-rrow">${pax([{c:"#7a3a9a",l:"KT Kathryn"},{c:"#7a3a9a",l:"FR Francois"}])}<span class="pt-rn tbd">Room TBD</span></div></div></div>
           <div class="pt-card hotel"><div class="pt-chd">🏨 The Madrid EDITION · Conley & Rey</div><div class="pt-hd">Plaza de las Descalzas · Madrid · editionhotels.com</div><div class="pt-hdd">Ian Schrager luxury hotel · Rooftop infinity pool · Oroya restaurant · Punch Room bar</div><div class="pt-rooms"><div class="pt-rrow">${pax([{c:"#1a6b8a",l:"CO Conley"},{c:"#1a6b8a",l:"RE Rey"}])}<span class="pt-rn tbd">Room TBD</span></div></div></div>
         </div>
         <div class="acts">
@@ -1901,19 +1867,79 @@ function renderPretrip(){
       <div class="day-row"><div class="day-spine"><div class="day-dot">3</div><div class="day-ds">Fri Jul 3</div></div><div class="day-body">
         <div class="day-loc">✈️ Madrid → Split, Croatia</div><div class="day-title">Fly to Split — Yacht Eve!</div>
         <div class="pt-cards">
-          <div class="pt-card"><div class="pt-chd">✈️ MAD→FRA→SPU · Adria, Karnell & Kelly</div><div class="pt-frow">${fleg('MAD','FRA','Lufthansa LH1123 · 8:25AM–11:00AM')}${fleg('FRA','SPU','LH6004 · 12:05PM–1:45PM · Croatia Airlines')}</div><div class="pt-note">📌 Conf: H-N-KM4MF8 · Capital One Travel · Economy Classic</div><div class="pt-pax">${pax([{c:"#9a3a8a",l:"AD Adria"},{c:"#c4622d",l:"KA Karnell"},{c:"#c4622d",l:"KE Kelly"}])}</div></div>
+          <div class="pt-card"><div class="pt-chd">✈️ MAD→FRA→SPU · Adria, Karnell & Kelly</div><div class="pt-frow">${fleg('MAD','FRA','Lufthansa LH1123 · 8:25AM–11:00AM')}${fleg('FRA','SPU','LH6004 · 12:05PM–1:45PM · Croatia Airlines')}</div><div class="pt-note">📌 Conf: H-N-KM4MF8 · Capital One Travel</div><div class="pt-pax">${pax([{c:"#9a3a8a",l:"AD Adria"},{c:"#c4622d",l:"KA Karnell"},{c:"#c4622d",l:"KE Kelly"}])}</div></div>
           <div class="pt-card"><div class="pt-chd">✈️ MAD→SPU · Conley & Rey · Direct</div><div class="pt-frow">${fleg('MAD','SPU','Direct · Thu Jul 2 · Flight details TBD')}</div><div class="pt-pax">${pax([{c:"#1a6b8a",l:"CO Conley"},{c:"#1a6b8a",l:"RE Rey"}])}</div></div>
-          <div class="pt-card tbd"><div class="pt-chd">✈️ MAD→SPU · Kathryn · Flight TBD</div><div class="pt-pax">${pax([{c:"#7a3a9a",l:"KT Kathryn"}])}</div></div>
-          <div class="pt-card hotel"><div class="pt-chd">🏨 AC Hotel by Marriott Split · Jul 3</div><div class="pt-hd">Dalmatia Tower, Split · tallest building in Croatia</div><div class="pt-hdd">Floors 18–28 with panoramic Adriatic views · 178 Spa on 17th floor</div><div class="pt-rooms"><div class="pt-rrow">${pax([{c:"#9a3a8a",l:"AD Adria"},{c:"#6b5ba4",l:"AK Akilah"}])}<span class="pt-rn tbd">Room TBD</span></div></div></div>
-        </div>
-        <div class="acts">
-          <div class="act"><span class="at">Arrive</span><span class="ai">🏙️</span><span class="ax">Explore Diocletian's Palace & Riva waterfront — the Adriatic is right there!</span></div>
-          <div class="act"><span class="at">Tomorrow</span><span class="ai">🛳️</span><span class="ax">M/S San Spirito boards at 1 PM — the main event awaits!</span></div>
+          <div class="pt-card tbd"><div class="pt-chd">✈️ MAD→SPU · Kathryn & Francois · Flight TBD</div><div class="pt-pax">${pax([{c:"#7a3a9a",l:"KT Kathryn"},{c:"#7a3a9a",l:"FR Francois"}])}</div></div>
         </div>
       </div></div>
     </div>`;
 }
 
+// ── SPLIT TAB ──
+function renderSplit(){
+  const pax=arr=>arr.map(p=>`<span class="ptpax" style="background:${p.c}">${p.l}</span>`).join('');
+  document.getElementById('splitInner').innerHTML=`
+    <div class="sec-title">Split, Croatia: Yacht Eve</div>
+    <div class="sec-desc">Split · Jul 3 – Jul 4 · Board M/S San Spirito at 1PM on Jul 4</div>
+    <div class="pt-crew"><div class="pt-crew-lbl">Arriving Early</div><div class="pt-chips">
+      ${[{i:"AD",c:"#9a3a8a",n:"Adria"},{i:"AK",c:"#6b5ba4",n:"Akilah"}]
+        .map(c=>`<div class="ptchip" style="background:${c.c}"><span>${c.i}</span>${c.n}</div>`).join('')}
+    </div></div>
+    <div class="itin">
+      <div class="day-row"><div class="day-spine"><div class="day-dot">3</div><div class="day-ds">Fri Jul 3</div></div><div class="day-body">
+        <div class="day-loc">🇭🇷 Arrive Split, Croatia</div><div class="day-title">Explore Split — The Night Before!</div>
+        <div class="pt-cards">
+          <div class="pt-card hotel"><div class="pt-chd">🏨 AC Hotel by Marriott Split · Jul 3–4</div><div class="pt-hd">Dalmatia Tower, Split · tallest building in Croatia</div><div class="pt-hdd">Floors 18–28 with panoramic Adriatic views · 178 Spa on 17th floor · 5-min walk to Diocletian's Palace</div><div class="pt-rooms"><div class="pt-rrow">${pax([{c:"#9a3a8a",l:"AD Adria"},{c:"#6b5ba4",l:"AK Akilah"}])}<span class="pt-rn tbd">Room TBD</span></div></div><div class="pt-contact">📞 +385 21-226600 · marriott.com</div></div>
+        </div>
+        <div class="acts">
+          <div class="act"><span class="at">Afternoon</span><span class="ai">🏛️</span><span class="ax">Diocletian's Palace — one of the best-preserved Roman palaces in the world, right in the city center</span></div>
+          <div class="act"><span class="at">Afternoon</span><span class="ai">🌊</span><span class="ax">Stroll the Riva waterfront promenade — palm trees, café terraces & Adriatic views</span></div>
+          <div class="act"><span class="at">Evening</span><span class="ai">🍷</span><span class="ax">Dinner in Split's Old Town — fresh seafood & Croatian wine</span></div>
+          <div class="act"><span class="at">Evening</span><span class="ai">🌅</span><span class="ax">Sunset views from Marjan Hill if you have energy!</span></div>
+        </div>
+      </div></div>
+      <div class="day-row"><div class="day-spine"><div class="day-dot" style="background:linear-gradient(135deg,var(--om),var(--ob))">4</div><div class="day-ds">Sat Jul 4</div></div><div class="day-body">
+        <div class="day-loc">⛵ All Aboard! · Board M/S San Spirito</div><div class="day-title">Yacht Week Begins!</div>
+        <div class="acts">
+          <div class="act"><span class="at">Morning</span><span class="ai">🏙️</span><span class="ax">Free time in Split — last chance to explore before boarding</span></div>
+          <div class="act"><span class="at">1:00 PM</span><span class="ai">🛳️</span><span class="ax">Board M/S San Spirito — welcome drinks, cabin assignments & meet the crew</span></div>
+          <div class="act"><span class="at">Afternoon</span><span class="ai">🥂</span><span class="ax">Welcome cocktails on deck as we sail away from Split!</span></div>
+        </div>
+      </div></div>
+    </div>`;
+}
+
+// ── WEATHER TAB ──
+function renderWeather(){
+  document.getElementById('weatherInner').innerHTML=`
+    <div class="sec-title">Weather & Climate</div>
+    <div class="sec-desc">Historical averages for each destination · Summer 2026</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:4px;">
+      ${[
+        {flag:'🇲🇦',dest:'Marrakesh, Morocco',dates:'Jun 29 – Jul 2',
+         rows:[['☀️ Avg High','97–100°F (36–38°C)'],['🌙 Avg Low','68°F (20°C)'],['🌧️ Rain','Near zero — desert dry'],['☀️ Sunshine','11 hrs/day'],['🌬️ Wind','Light'],['🕶️ UV Index','Extreme — wear SPF 50+']]},
+        {flag:'🇪🇸',dest:'Madrid, Spain',dates:'Jul 2 – Jul 3',
+         rows:[['☀️ Avg High','91–93°F (33–34°C)'],['🌙 Avg Low','63°F (17°C)'],['🌧️ Rain','Very low — dry season'],['☀️ Sunshine','12 hrs/day'],['🌬️ Wind','Light to moderate'],['💡 Tip','Cool mornings, hot afternoons — light layers for evenings']]},
+        {flag:'🇭🇷',dest:'Split & Croatian Adriatic',dates:'Jul 3 – Jul 11',
+         rows:[['☀️ Avg High','86°F (30°C)'],['🌊 Sea Temp','77°F (25°C)'],['🌧️ Rain','Very low — peak summer'],['☀️ Sunshine','11 hrs/day'],['🌬️ Wind','Maestral breeze (afternoon) — can get choppy'],['💊 Note','Pack sea-sickness tablets — essential!']]},
+        {flag:'🇲🇪',dest:'Kotor & Tivat, Montenegro',dates:'Jul 11 – Jul 15',
+         rows:[['☀️ Avg High','87°F (31°C)'],['🌊 Sea Temp','75°F (24°C)'],['🌧️ Rain','Low — occasional afternoon storm'],['☀️ Sunshine','10 hrs/day'],['🌬️ Wind','Light — sheltered bay'],['💡 Tip','Bay of Kotor is more sheltered than open Adriatic']]},
+      ].map(w=>`
+        <div style="background:#fff;border:1px solid #dce8ee;border-radius:14px;overflow:hidden;">
+          <div style="background:linear-gradient(135deg,var(--od),var(--om));padding:14px 18px;">
+            <div style="font-size:22px;margin-bottom:4px;">${w.flag}</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:#fff;">${w.dest}</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px;">${w.dates}</div>
+          </div>
+          <div style="padding:12px 18px;">
+            ${w.rows.map(([k,v])=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #f0f4f7;font-size:12px;"><span style="color:var(--tg);">${k}</span><span style="font-weight:600;color:var(--td);text-align:right;max-width:60%;">${v}</span></div>`).join('')}
+          </div>
+        </div>`).join('')}
+    </div>
+    <div style="background:linear-gradient(135deg,rgba(196,98,45,.1),rgba(201,150,58,.08));border:1px solid rgba(196,98,45,.2);border-radius:12px;padding:14px 18px;margin-top:16px;font-size:12px;color:var(--tm);line-height:1.7;">
+      🌡️ <strong>What to pack for the heat:</strong> SPF 50+ sunscreen (bring plenty — yacht days are intense!), wide-brim hat, quality sunglasses, after-sun lotion, and lightweight breathable clothing. Sea-sickness tablets are essential for the yacht — don't skip them!
+    </div>`;
+}
 // ── POST-TRIP ──
 function renderPosttrip(){
   const pax=arr=>arr.map(p=>`<span class="ptpax" style="background:${p.c}">${p.l}</span>`).join('');
@@ -2010,7 +2036,7 @@ function updateDuePill(){
 }
 
 function renderAll(){
-  renderItinerary();renderPayments();renderCabins();renderFlights();renderPretrip();renderPosttrip();
+  renderItinerary();renderCabins();renderFlights();renderPretrip();renderSpain();renderSplit();renderWeather();renderPosttrip();
 }
 </script>
 </body>
