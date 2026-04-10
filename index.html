@@ -415,12 +415,12 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
   </div>
   <div class="tab-panel" id="tab-flights">
     <div class="sec-title">Flights</div>
-    <div class="sec-desc">Send details to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="036862716d666f6f616f62606843646e626a6f2d606c6e">[email&#160;protected]</a> or <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="debfbaacb7bf81aab1b2b7a8bbac9ea7bfb6b1b1f0bdb1b3">[email&#160;protected]</a></div>
+    <div class="sec-desc">Send details to karnellblack@gmail.com or adria_toliver@yahoo.com</div>
     <div class="flt-wrap" id="flightsEl"></div>
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── FIREBASE CONFIG ──
 const firebaseConfig = {
   apiKey: "AIzaSyD87zoDvwLQVChv4tdLuLu6ZRhtKaLvnHo",
@@ -1741,7 +1741,7 @@ function renderFlights(){
 
     <div class="flt-card"><div class="flt-top"><span class="ft w">Remaining guests — TBD</span><span class="ft i">Arrive by Jul 4 · 1 PM boarding</span></div>
       ${rt('USA','Your home city','TBD','Jul 3','SPU','Split Airport','TBD','Jul 3 or Jul 4','Your airline','')}
-      <div class="fpax">${pc([G[3],G[4],G[7],G[8],G[9],G[10],G[11],G[12],G[13],G[14],G[16],G[17],G[20],G[21]])}</div>
+      <div class="fpax">${pc([G[3],G[4],G[7],G[8],G[9],G[10],G[11],G[12],G[13],G[14],G[16],G[17],G[20]].filter(Boolean))}</div>
     </div>
 
     <div class="flt-gt">✈️ Return — Fly home from Dubrovnik (DBV) · July 11–12, 2026</div>
@@ -1759,7 +1759,7 @@ function renderFlights(){
 
     <div class="flt-card"><div class="flt-top"><span class="ft w">Remaining guests — TBD</span><span class="ft i">No flights before noon on Jul 11</span></div>
       ${rt('DBV','Dubrovnik Airport','After noon','Sat Jul 11','USA','Your home city','TBD','Jul 11 or Jul 12','Your airline','')}
-      <div class="fpax">${pc([G[3],G[4],G[7],G[8],G[9],G[10],G[11],G[12],G[13],G[14],G[16],G[17],G[20],G[21]])}</div>
+      <div class="fpax">${pc([G[3],G[4],G[7],G[8],G[9],G[10],G[11],G[12],G[13],G[14],G[16],G[17],G[20]].filter(Boolean))}</div>
     </div>`;
 }
 
