@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0057)file:///C:/Users/Adria/Downloads/croatia-dashboard_1.html -->
+<!-- saved from url=(0057)file:///C:/Users/Adria/Downloads/croatia-dashboard_2.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -326,7 +326,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
 
 <!-- User Bar -->
 <div class="user-bar" id="userBar" style="display:none">
-  <img class="user-av" id="userAv" src="file:///C:/Users/Adria/Downloads/croatia-dashboard_1.html" alt="">
+  <img class="user-av" id="userAv" src="file:///C:/Users/Adria/Downloads/croatia-dashboard_2.html" alt="">
   <div><div class="user-name" id="userName"></div><div class="user-email" id="userEmail"></div></div>
   <span class="user-match" id="userMatch"></span>
   <button class="user-signout" onclick="signOut()">Sign out</button>
@@ -409,7 +409,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
   </div>
   <div class="tab-panel" id="tab-flights">
     <div class="sec-title">Flights</div>
-    <div class="sec-desc">Send details to <a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="caa1abb8a4afa6a6a8a6aba9a18aada7aba3a6e4a9a5a7">[email&nbsp;protected]</a> or <a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0d6c697f646c52796261647b687f4d746c656262236e6260">[email&nbsp;protected]</a></div>
+    <div class="sec-desc">Send details to karnellblack@gmail.com or adria_toliver@yahoo.com</div>
     <div class="flt-wrap" id="flightsEl"></div>
   </div>
 </div>
@@ -469,8 +469,8 @@ const GUESTS = [
 
 // Guest email map — maps email → guest index
 const GUEST_EMAILS = {
-  "adria_toliver@yahoo.com": 0,
-  "karnellblack@gmail.com": 1,
+  "adria_toliver&#64;yahoo.com": 0,
+  "karnellblack&#64;gmail.com": 1,
   // Other guests — add emails as they sign up or share them with you
   // Format: "email@example.com": INDEX (0-21 matching GUESTS array order)
 };
@@ -1353,7 +1353,7 @@ function defaultItin(g) {
   })();
   return { legs: [
     { type:"flight", status:"tbd", label:"✈️ Outbound Flight to Split", date:"Fri Jul 3 or Sat Jul 4", details:[
-      {k:"Flight", v:"TBD — please send to karnellblack@gmail.com"},
+      {k:"Flight", v:"TBD — please send to karnellblack&#64;gmail.com"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4–11", details:[
       {k:"Cabin", v:cabin},
@@ -1411,7 +1411,7 @@ function renderMyInfo() {
       </div>
       <div class="it-legs-count" style="display:none">${itin.legs.length} legs</div>
     </div>
-    <div class="it-notice">📧 Missing a flight? Send details to <strong>karnellblack@gmail.com</strong> or <strong>adria_toliver@yahoo.com</strong></div>
+    <div class="it-notice">📧 Missing a flight? Send details to <strong>karnellblack&#64;gmail.com</strong> or <strong>adria_toliver&#64;yahoo.com</strong></div>
     <div class="it-legs">${legCards}</div>`;
 }
 
@@ -1471,7 +1471,7 @@ function updPk(t) {
 const PACK=[
   {cat:"Documents & Entry",icon:"🪪",items:[
     {n:"Passport — valid 3+ months beyond Jul 11",e:true},{n:"Travel insurance documents",e:true},
-    {n:"Flight e-tickets (outbound & return)",e:true},{n:"Send flight info to karnellblack@gmail.com",e:true},
+    {n:"Flight e-tickets (outbound & return)",e:true},{n:"Send flight info to karnellblack&#64;gmail.com",e:true},
     {n:"Enroll in STEP Program",e:true},{n:"Notify bank of travel dates",e:true},
     {n:"Wallet",e:true},{n:"Domestic cash",e:true},
   ]},
@@ -1673,7 +1673,7 @@ function renderPayments(){
         </div>
         <div style="margin-top:14px;padding:14px 18px;background:#fff;border:1px solid #dce8ee;border-radius:var(--ra);font-size:12px;color:var(--tm);line-height:1.7;">
           💳 Send payments to <strong>Adria Toliver</strong><br>
-          Questions? Contact <strong>adria_toliver@yahoo.com</strong>
+          Questions? Contact <strong>adria_toliver&#64;yahoo.com</strong>
         </div>`;
     } else {
       document.getElementById('payGridEl').innerHTML=`<div style="padding:18px;font-size:13px;color:var(--tg);">Sign in with your name matching the guest list to see your balance.</div>`;
@@ -1722,7 +1722,7 @@ function renderFlights(){
   </div>`;
   const G=GUESTS;
   document.getElementById('flightsEl').innerHTML=`
-    <div class="flt-info">📧 <strong>Send your flight details</strong> to karnellblack@gmail.com or adria_toliver@yahoo.com<br>🚌 <strong>Private coach transfers</strong> included — inbound to Split Jul 4 and outbound Split→DBV Jul 11.<br>⚠️ Book returns <strong>no earlier than noon on Jul 11</strong> from Dubrovnik (DBV).</div>
+    <div class="flt-info">📧 <strong>Send your flight details</strong> to karnellblack&#64;gmail.com or adria_toliver&#64;yahoo.com<br>🚌 <strong>Private coach transfers</strong> included — inbound to Split Jul 4 and outbound Split→DBV Jul 11.<br>⚠️ Book returns <strong>no earlier than noon on Jul 11</strong> from Dubrovnik (DBV).</div>
 
     <div class="flt-gt">✈️ Outbound — Fly to Split (SPU) · July 2–4, 2026</div>
 
