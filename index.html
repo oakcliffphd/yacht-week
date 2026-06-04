@@ -430,17 +430,13 @@ const auth = firebase.auth();
 const db   = firebase.database();
 const provider = new firebase.auth.GoogleAuthProvider();
 
-// Handle redirect result (for mobile) — must be called before onAuthStateChanged
+// Handle redirect result silently — errors here are non-fatal
 auth.getRedirectResult().then(result => {
   if (result && result.user) {
-    // Successfully signed in via redirect — onAuthStateChanged will handle the rest
     console.log('Redirect sign-in complete:', result.user.email);
   }
-}).catch(err => {
-  if (err.code) {
-    const el = document.getElementById('authError');
-    if (el) { el.textContent = err.message; el.style.display = 'block'; }
-  }
+}).catch(() => {
+  // Silently ignore — redirect errors on load are non-fatal
 });
 
 // ── GUEST LIST ──
