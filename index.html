@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0057)file:///C:/Users/Adria/Downloads/croatia-dashboard_1.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Drop It Like It's Yacht — Croatia 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="./index_files/css2" rel="stylesheet">
 
 <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script src="./index_files/firebase-app-compat.js.download"></script>
+<script src="./index_files/firebase-auth-compat.js.download"></script>
+<script src="./index_files/firebase-database-compat.js.download"></script>
 
 <style>
 :root{--od:#0d3d5c;--om:#1a6b8a;--ob:#2a9bbf;--op:#c8e8f4;--of:#e8f6fb;--tc:#c4622d;--tl:#e8825a;--cr:#f8f3ec;--gd:#c9963a;--gl:#e8be6a;--wh:#fff;--td:#0d2535;--tm:#3a5468;--tg:#7a9aaa;--gs:#2e8b57;--gw:#d4860a;--gr:#b83030;--ra:14px;}
@@ -310,23 +310,23 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
 <body>
 
 <!-- Auth Screen -->
-<div id="authScreen">
+<div id="authScreen" style="display: flex;">
   <div class="auth-card">
     <div class="auth-flag">⚓</div>
     <div class="auth-title">Drop It Like<br><span>It's Yacht</span></div>
     <div class="auth-sub">Croatia · Summer 2026 · Sign in to access the trip dashboard</div>
     <button class="auth-btn" onclick="signIn()">
-      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg>
       Sign in with Google
     </button>
     <div class="auth-note">Only guests on the list can access this dashboard</div>
-    <div class="auth-error" id="authError"></div>
+    <div class="auth-error" id="authError" style="display: block;">Firebase: This operation is not supported in the environment this application is running on. "location.protocol" must be http, https or chrome-extension and web storage must be enabled. (auth/operation-not-supported-in-this-environment).</div>
   </div>
 </div>
 
 <!-- User Bar -->
 <div class="user-bar" id="userBar" style="display:none">
-  <img class="user-av" id="userAv" src="" alt="">
+  <img class="user-av" id="userAv" src="file:///C:/Users/Adria/Downloads/croatia-dashboard_1.html" alt="">
   <div><div class="user-name" id="userName"></div><div class="user-email" id="userEmail"></div></div>
   <span class="user-match" id="userMatch"></span>
   <button class="user-signout" onclick="signOut()">Sign out</button>
@@ -367,16 +367,16 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
   <span class="cd-lbl">🇭🇷 M/S San Spirito awaits!</span>
 </div>
 <nav class="tabs-nav" id="tabsNav" style="display:none">
-  <button class="tab-btn" onclick="sw('myinfo',this)" id="myInfoTabBtn">👤 My Info</button>
-  <button class="tab-btn" onclick="sw('pretrip',this)">🇲🇦 Morocco</button>
-  <button class="tab-btn" onclick="sw('spain',this)">🇪🇸 Spain</button>
-  <button class="tab-btn" onclick="sw('split',this)">🇭🇷 Split</button>
-  <button class="tab-btn active" onclick="sw('itinerary',this)">⛵ Yacht Week</button>
-  <button class="tab-btn" onclick="sw('posttrip',this)">🇲🇪 Montenegro</button>
-  <button class="tab-btn" onclick="sw('weather',this)">🌤️ Weather</button>
-  <button class="tab-btn" onclick="sw('packing',this)">🎒 Packing</button>
-  <button class="tab-btn" onclick="sw('cabins',this)">🛳️ Cabins</button>
-  <button class="tab-btn" onclick="sw('flights',this)">✈️ Flights</button>
+  <button class="tab-btn" onclick="sw(&#39;myinfo&#39;,this)" id="myInfoTabBtn">👤 My Info</button>
+  <button class="tab-btn" onclick="sw(&#39;pretrip&#39;,this)">🇲🇦 Morocco</button>
+  <button class="tab-btn" onclick="sw(&#39;spain&#39;,this)">🇪🇸 Spain</button>
+  <button class="tab-btn" onclick="sw(&#39;split&#39;,this)">🇭🇷 Split</button>
+  <button class="tab-btn active" onclick="sw(&#39;itinerary&#39;,this)">⛵ Yacht Week</button>
+  <button class="tab-btn" onclick="sw(&#39;posttrip&#39;,this)">🇲🇪 Montenegro</button>
+  <button class="tab-btn" onclick="sw(&#39;weather&#39;,this)">🌤️ Weather</button>
+  <button class="tab-btn" onclick="sw(&#39;packing&#39;,this)">🎒 Packing</button>
+  <button class="tab-btn" onclick="sw(&#39;cabins&#39;,this)">🛳️ Cabins</button>
+  <button class="tab-btn" onclick="sw(&#39;flights&#39;,this)">✈️ Flights</button>
 </nav>
 <div class="content" id="tabContent" style="display:none">
   <div class="tab-panel" id="tab-myinfo"><div id="myInfoInner"></div></div>
@@ -385,10 +385,10 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
   <div class="tab-panel" id="tab-split"><div id="splitInner"></div></div>
   <div class="tab-panel active" id="tab-itinerary">
     <div class="sec-title">Yacht Week Itinerary</div>
-    <div class="sec-desc">M/S San Spirito · July 4–11, 2026 · Vaya Adventures</div>
+    <div class="sec-desc">M/S San Spirito · July 4–11, 2026 · Boards Omiš · Disembarks Dubrovnik · Vaya Adventures</div>
     <div class="itin" id="itinEl"></div>
     <div class="addon-box"><div class="addon-title">✨ Add-On Experiences</div><div class="addon-cards">
-      <div class="addon-card"><div class="ac-title">🇲🇦 Marrakesh, Morocco</div><div class="ac-dates">June 29 – July 2</div><div class="ac-desc">Pre-trip for Adria, Karnell, Kelly & Claire.</div></div>
+      <div class="addon-card"><div class="ac-title">🇲🇦 Marrakesh, Morocco</div><div class="ac-dates">June 29 – July 2</div><div class="ac-desc">Pre-trip for Adria, Karnell, Kelly &amp; Claire.</div></div>
       <div class="addon-card"><div class="ac-title">🇪🇸 Madrid, Spain</div><div class="ac-dates">July 2–3</div><div class="ac-desc">Karnell's 40th birthday celebration!</div></div>
       <div class="addon-card"><div class="ac-title">🇲🇪 Kotor, Montenegro</div><div class="ac-dates">July 11–15</div><div class="ac-desc">Post-trip after disembarking — Bay of Kotor awaits.</div></div>
     </div></div>
@@ -409,7 +409,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
   </div>
   <div class="tab-panel" id="tab-flights">
     <div class="sec-title">Flights</div>
-    <div class="sec-desc">Send details to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="caa1abb8a4afa6a6a8a6aba9a18aada7aba3a6e4a9a5a7">[email&#160;protected]</a> or <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0d6c697f646c52796261647b687f4d746c656262236e6260">[email&#160;protected]</a></div>
+    <div class="sec-desc">Send details to <a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="caa1abb8a4afa6a6a8a6aba9a18aada7aba3a6e4a9a5a7">[email&nbsp;protected]</a> or <a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0d6c697f646c52796261647b687f4d746c656262236e6260">[email&nbsp;protected]</a></div>
     <div class="flt-wrap" id="flightsEl"></div>
   </div>
 </div>
@@ -781,16 +781,16 @@ const GUEST_ITIN = {
     ]},
   ]},
   "Conley": { legs: [
-    { type:"flight", status:"tbd", label:"✈️ Home → Madrid", date:"TBD", details:[
+    { type:"flight", status:"confirmed", label:"✈️ Home → Madrid", date:"Tue Jul 1", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"Madrid (MAD) · TBD"},
+      {k:"Flight",        v:"AF0377 · Arrives MAD · 4:45PM"},
+      {k:"Arrives",       v:"Madrid (MAD) · Tue Jul 1 · 4:45PM"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
       {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
+      {k:"Note",          v:"Air France · Traveling with Rey"},
     ]},
-    { type:"hotel", status:"confirmed", label:"🏨 The Madrid EDITION", date:"TBD", details:[
+    { type:"hotel", status:"confirmed", label:"🏨 The Madrid EDITION", date:"Jul 1 – Jul 2", details:[
       {k:"Room Type",     v:"TBD"},
       {k:"Sharing With",  v:"Rey"},
       {k:"Booked Via",    v:""},
@@ -799,42 +799,61 @@ const GUEST_ITIN = {
       {k:"Website",       v:"editionhotels.com/madrid"},
       {k:"Phone",         v:""},
     ]},
-    { type:"flight", status:"tbd", label:"✈️ Madrid → Split", date:"Thu Jul 2", details:[
+    { type:"flight", status:"confirmed", label:"✈️ Madrid → Split", date:"Wed Jul 2", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD · Direct"},
-      {k:"Arrives",       v:"Split (SPU) · Thu Jul 2 · TBD"},
+      {k:"Flight",        v:"IB0945 · MAD → SPU"},
+      {k:"Arrives",       v:"Split (SPU) · Wed Jul 2 · 10:15AM"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
       {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Arriving Split Jul 2 — one day before boarding"},
+      {k:"Note",          v:"Iberia Airlines · Direct · Traveling with Rey"},
     ]},
-    { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
+    { type:"hotel", status:"confirmed", label:"🏨 AC Hotel by Marriott Split", date:"Jul 2 – Jul 4", details:[
+      {k:"Room Type",     v:"TBD"},
+      {k:"Sharing With",  v:"Rey"},
+      {k:"Booked Via",    v:""},
+      {k:"Confirmation",  v:""},
+      {k:"Address",       v:"Dalmatia Tower, Split, Croatia"},
+      {k:"Website",       v:"marriott.com"},
+      {k:"Phone",         v:"+385 21-226600"},
+    ]},
+    { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 9", details:[
       {k:"Cabin",         v:"T3"},
       {k:"Sharing With",  v:"Rey"},
       {k:"Boards",        v:"Split · Jul 4 · 1:00PM"},
-      {k:"Disembarks",    v:"Split · Jul 11 · morning"},
+      {k:"Disembarks",    v:"Dubrovnik · Jul 9 · early"},
+      {k:"Note",          v:"Early departure — flying home Jul 9"},
     ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
+    { type:"flight", status:"confirmed", label:"✈️ Return Home from Dubrovnik", date:"Tue Jul 9", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
+      {k:"Flight",        v:"DL9504 · DBV · Departs 1:25PM"},
       {k:"Arrives",       v:"TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
       {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
+      {k:"Note",          v:"Delta Airlines · Early departure — leaving yacht before Jul 11 disembark"},
     ]},
   ]},
   "Rey": { legs: [
-    { type:"flight", status:"tbd", label:"✈️ Home → Madrid", date:"TBD", details:[
+    { type:"flight", status:"confirmed", label:"✈️ Home → Madrid", date:"Fri Jun 27", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"Madrid (MAD) · TBD"},
+      {k:"Flight",        v:"DL0108 · Arrives MAD · 12:15PM"},
+      {k:"Arrives",       v:"Madrid (MAD) · Fri Jun 27 · 12:15PM"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
       {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
+      {k:"Note",          v:"Delta Airlines · Staying with family Jun 27 – Jul 1"},
     ]},
-    { type:"hotel", status:"confirmed", label:"🏨 The Madrid EDITION", date:"TBD", details:[
+    { type:"hotel", status:"confirmed", label:"🏨 Staying with Family · Madrid", date:"Jun 27 – Jul 1", details:[
+      {k:"Room Type",     v:"With family locally"},
+      {k:"Sharing With",  v:""},
+      {k:"Booked Via",    v:""},
+      {k:"Confirmation",  v:""},
+      {k:"Address",       v:"Madrid, Spain"},
+      {k:"Website",       v:""},
+      {k:"Phone",         v:""},
+    ]},
+    { type:"hotel", status:"confirmed", label:"🏨 The Madrid EDITION", date:"Jul 1 – Jul 2", details:[
       {k:"Room Type",     v:"TBD"},
       {k:"Sharing With",  v:"Conley"},
       {k:"Booked Via",    v:""},
@@ -843,14 +862,23 @@ const GUEST_ITIN = {
       {k:"Website",       v:"editionhotels.com/madrid"},
       {k:"Phone",         v:""},
     ]},
-    { type:"flight", status:"tbd", label:"✈️ Madrid → Split", date:"Thu Jul 2", details:[
+    { type:"flight", status:"confirmed", label:"✈️ Madrid → Split", date:"Wed Jul 2", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD · Direct"},
-      {k:"Arrives",       v:"Split (SPU) · Thu Jul 2 · TBD"},
+      {k:"Flight",        v:"IB0945 · MAD → SPU"},
+      {k:"Arrives",       v:"Split (SPU) · Wed Jul 2 · 10:15AM"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
       {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
+      {k:"Note",          v:"Iberia Airlines · Direct · Traveling with Conley"},
+    ]},
+    { type:"hotel", status:"confirmed", label:"🏨 AC Hotel by Marriott Split", date:"Jul 2 – Jul 4", details:[
+      {k:"Room Type",     v:"TBD"},
+      {k:"Sharing With",  v:"Conley"},
+      {k:"Booked Via",    v:""},
+      {k:"Confirmation",  v:""},
+      {k:"Address",       v:"Dalmatia Tower, Split, Croatia"},
+      {k:"Website",       v:"marriott.com"},
+      {k:"Phone",         v:"+385 21-226600"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
       {k:"Cabin",         v:"T3"},
@@ -858,14 +886,14 @@ const GUEST_ITIN = {
       {k:"Boards",        v:"Split · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Split · Jul 11 · morning"},
     ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
+    { type:"flight", status:"confirmed", label:"✈️ Return Home from Dubrovnik", date:"Sat Jul 11", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
+      {k:"Flight",        v:"DL9504 · DBV · Departs 1:25PM"},
       {k:"Arrives",       v:"TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
       {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
+      {k:"Note",          v:"Delta Airlines"},
     ]},
   ]},
   "Dex": { legs: [
@@ -1501,55 +1529,58 @@ const PACK=[
 
 // ── ITINERARY DATA ──
 const ITIN=[
-  {day:"4",ds:"Sat Jul 4",cls:"",bday:null,badge:"DAY 1",loc:"⛵ Board M/S San Spirito · Split",title:"Day 1 — All Aboard!",acts:[
-    {t:"Morning",i:"🏙️",x:"Free time in Split — explore Diocletian's Palace",g:"Explore",gc:"te"},
-    {t:"1:00 PM",i:"🛳️",x:"BOARD M/S San Spirito — welcome! Cabin assignments, briefing, meet the crew",g:"Board ⚓",gc:"ty"},
-    {t:"Afternoon",i:"🥂",x:"Welcome cocktails & sail away from Split",g:"Social",gc:"tc2"},
-    {t:"Evening",i:"🍽️",x:"Dinner onboard as we sail toward Dubrovnik",g:"Dinner ✓",gc:"tt"},
+  {day:"4",ds:"Sat Jul 4",cls:"",bday:null,badge:"DAY 1",loc:"⛵ Board M/S San Spirito · Omiš",title:"Day 1 — All Aboard in Omiš!",acts:[
+    {t:"All day",i:"🛳️",x:"Embarkation in Omiš harbour — cabins available from 2:00PM. Luggage can be left on board earlier",g:"Board ⚓",gc:"ty"},
+    {t:"Morning",i:"🌊",x:"Free time in Split",g:"Explore",gc:"te"},
+    {t:"Afternoon",i:"🥂",x:"Welcome drink & sail away from Omiš",g:"Social",gc:"tc2"},
+    {t:"7:00 PM",i:"🍽️",x:"Welcome meeting and dinner onboard",g:"Dinner ✓",gc:"tt"},
+    {t:"Evening",i:"🌙",x:"Overnight in Omiš",g:"Overnight",gc:"ty"},
   ]},
-  {day:"5",ds:"Sun Jul 5",cls:"",bday:null,badge:"DAY 2",loc:"⛵ Split → Dubrovnik",title:"Day 2 — Pearl of the Adriatic",acts:[
-    {t:"Morning",i:"🏰",x:"Guided tour of Dubrovnik's UNESCO historic center",g:"Tour",gc:"te"},
-    {t:"Morning",i:"🚶",x:"Free time: stroll the City Walls or take the cable car up Mount Srđ",g:"Explore",gc:"te"},
+  {day:"5",ds:"Sun Jul 5",cls:"",bday:null,badge:"DAY 2",loc:"⛵ Omiš → Split → Pučišća (Brač Island)",title:"Day 2 — Split City Tour & Brač Island",acts:[
+    {t:"Morning",i:"🚢",x:"Cruise towards Split",g:"Sail",gc:"ty"},
+    {t:"Morning",i:"🏛️",x:"Split City Tour — guided walk through the world-famous Diocletian's Palace (UNESCO)",g:"Tour",gc:"te"},
+    {t:"Midday",i:"⛵",x:"Continue cruising towards Pučišća on Brač Island",g:"Sail",gc:"ty"},
     {t:"Midday",i:"🍽️",x:"Lunch served onboard",g:"Lunch ✓",gc:"tt"},
-    {t:"Afternoon",i:"⚓",x:"Arrive Slano — beaches, pine forests & olive groves",g:"Explore",gc:"te"},
+    {t:"Evening",i:"⚓",x:"Overnight in Pučišća, Brač Island",g:"Overnight",gc:"te"},
   ]},
-  {day:"6",ds:"Mon Jul 6",cls:"ba",bday:"a",badge:"DAY 3",loc:"🎂 Slano → Korčula via Mljet — ADRIA'S BIRTHDAY!",title:"Day 3 — Adria Turns 40 at Sea!",acts:[
-    {t:"Morning",i:"🥂",x:"🎂 Birthday breakfast on deck — mimosas & Adriatic sunrise!",g:"Celebrate!",gc:"tc2"},
-    {t:"Morning",i:"🌿",x:"Mljet National Park — Great & Small Lakes swim",g:"Explore",gc:"te"},
-    {t:"Morning",i:"⛪",x:"12th-century Benedictine Monastery on St. Mary's Island (included!)",g:"Included ✓",gc:"tt"},
-    {t:"Midday",i:"🍽️",x:"Lunch onboard as we sail to Korčula",g:"Lunch ✓",gc:"tt"},
-    {t:"Afternoon",i:"🗺️",x:"Korčula — birthplace of Marco Polo. Guided historic tour",g:"Tour",gc:"te"},
-    {t:"Evening",i:"🎉",x:"Adria's birthday dinner in Korčula!",g:"Party 🎂",gc:"tc2"},
+  {day:"6",ds:"Mon Jul 6",cls:"ba",bday:"a",badge:"DAY 3",loc:"🎂 Pučišća → Bol → Hvar — ADRIA'S BIRTHDAY!",title:"Day 3 — Adria Turns 40 at Sea!",acts:[
+    {t:"Morning",i:"🥂",x:"🎂 Birthday breakfast on deck — mimosas & Adriatic sunrise for Adria!",g:"Celebrate!",gc:"tc2"},
+    {t:"Morning",i:"🏖️",x:"Bol — Zlatni Rat (Golden Cape), one of Europe's finest beaches. Walk, swim or just relax",g:"Beach",gc:"te"},
+    {t:"Midday",i:"🍽️",x:"Lunch served onboard",g:"Lunch ✓",gc:"tt"},
+    {t:"Afternoon",i:"🌺",x:"Cruise along idyllic coves and bays towards Hvar — the sunniest Croatian island",g:"Sail",gc:"ty"},
+    {t:"Evening",i:"🗺️",x:"Hvar Town — guided evening walking tour of the island's rich history and culture",g:"Tour",gc:"te"},
+    {t:"Evening",i:"🎉",x:"Adria's birthday dinner in Hvar — free to choose from the island's restaurants!",g:"Party 🎂",gc:"tc2"},
   ]},
-  {day:"7",ds:"Tue Jul 7",cls:"",bday:null,badge:"DAY 4",loc:"⛵ Korčula → Vis",title:"Day 4 — The Unspoiled Island of Vis",acts:[
-    {t:"Morning",i:"⛵",x:"Sail to Vis — protected from over-tourism, crystal-clear waters",g:"Sail",gc:"ty"},
-    {t:"Midday",i:"🍽️",x:"Lunch onboard",g:"Lunch ✓",gc:"tt"},
-    {t:"Afternoon",i:"🏊",x:"Swim in Vis's pristine waters",g:"Swim",gc:"te"},
-    {t:"Evening",i:"🍷",x:"Dinner ashore — fresh seafood & local wine",g:"Dinner",gc:"tt"},
+  {day:"7",ds:"Tue Jul 7",cls:"",bday:null,badge:"DAY 4",loc:"⛵ Hvar → Blue Cave (Biševo) → Vis",title:"Day 4 — The Legendary Blue Cave",acts:[
+    {t:"Morning",i:"💙",x:"Blue Cave on Biševo Island — stunning natural light phenomenon. Entrance fees paid on the spot (weather permitting)",g:"Iconic ✓",gc:"tt"},
+    {t:"Midday",i:"⚓",x:"Dock in Vis — lunch served onboard",g:"Lunch ✓",gc:"tt"},
+    {t:"Afternoon",i:"🏊",x:"Explore Vis — unspoilt beaches, stone streets and traditional architecture. Free from mass tourism",g:"Explore",gc:"te"},
+    {t:"Evening",i:"🍷",x:"Dinner ashore in Vis — fresh seafood at a local tavern",g:"Dinner",gc:"tt"},
   ]},
-  {day:"8",ds:"Wed Jul 8",cls:"",bday:null,badge:"DAY 5",loc:"⛵ Vis → Blue Cave → Hvar",title:"Day 5 — The Legendary Blue Cave",acts:[
-    {t:"Morning",i:"💙",x:"The famous Blue Cave on Biševo Island — natural light phenomenon",g:"Included ✓",gc:"tt"},
-    {t:"Midday",i:"🍽️",x:"Lunch onboard",g:"Lunch ✓",gc:"tt"},
-    {t:"Afternoon",i:"🌺",x:"Arrive Hvar — glamorous island, hilltop fortress & lavender fields",g:"Explore",gc:"te"},
-    {t:"Evening",i:"🌆",x:"Hvar nightlife — wine bars & waterfront dining",g:"Evening",gc:"tc2"},
+  {day:"8",ds:"Wed Jul 8",cls:"",bday:null,badge:"DAY 5",loc:"⛵ Vis → Korčula → Mljet → Slano",title:"Day 5 — Marco Polo's Island & Captain's Dinner",acts:[
+    {t:"Morning",i:"⛵",x:"Morning departure — swim stop in a pristine bay en route to Korčula",g:"Swim",gc:"te"},
+    {t:"Afternoon",i:"🗺️",x:"Korčula — birthplace of Marco Polo. Guided tour of the Old Town's narrow cobbled streets",g:"Tour",gc:"te"},
+    {t:"Afternoon",i:"🍽️",x:"Lunch onboard",g:"Lunch ✓",gc:"tt"},
+    {t:"Evening",i:"🌿",x:"Cruise to Slano via Mljet National Park area",g:"Sail",gc:"ty"},
+    {t:"Evening",i:"⭐",x:"Captain's Dinner onboard in Slano — a special evening! (B, L, Captain's Dinner included)",g:"Captain's Dinner 🍾",gc:"tc2"},
   ]},
-  {day:"9",ds:"Thu Jul 9",cls:"",bday:null,badge:"DAY 6",loc:"⛵ Hvar → Bol → Trogir",title:"Day 6 — Zlatni Rat & Captain's Dinner",acts:[
-    {t:"Morning",i:"🏖️",x:"Zlatni Rat beach at Bol — one of Croatia's most famous beaches",g:"Beach",gc:"te"},
-    {t:"Midday",i:"🍽️",x:"Lunch onboard as we sail to Trogir",g:"Lunch ✓",gc:"tt"},
-    {t:"Afternoon",i:"🏛️",x:"Trogir — UNESCO World Heritage Site, guided city tour",g:"Tour",gc:"te"},
-    {t:"Evening",i:"⭐",x:"Captain's Dinner onboard — a special evening to celebrate!",g:"Captain's Dinner",gc:"tc2"},
+  {day:"9",ds:"Thu Jul 9",cls:"",bday:null,badge:"DAY 6",loc:"⛵ Slano → Dubrovnik City Walls",title:"Day 6 — Pearl of the Adriatic",acts:[
+    {t:"Morning",i:"⛵",x:"Morning departure to Dubrovnik, passing by the Elaphiti Islands — lunch onboard",g:"Lunch ✓",gc:"tt"},
+    {t:"Afternoon",i:"🏰",x:"Cruise along Dubrovnik's famous City Walls & fortifications — unforgettable group photo opportunity!",g:"Iconic",gc:"te"},
+    {t:"Afternoon",i:"🗺️",x:"Disembark at Old Town — guided tour of Dubrovnik's most stunning sights (UNESCO)",g:"Tour",gc:"te"},
+    {t:"Evening",i:"🚡",x:"Free evening — explore the City Walls, take the cable car up Mount Srđ, or find a favourite restaurant",g:"Free time",gc:"te"},
+    {t:"Evening",i:"🍽️",x:"Farewell dinner — your choice of Dubrovnik's intimate restaurants",g:"Farewell",gc:"tc2"},
   ]},
-  {day:"10",ds:"Fri Jul 10",cls:"",bday:null,badge:"DAY 7",loc:"⛵ Trogir → Split",title:"Day 7 — Farewell to the Adriatic",acts:[
-    {t:"Morning",i:"🏊",x:"Swim stop en route to Split",g:"Swim",gc:"te"},
-    {t:"Midday",i:"🍽️",x:"Lunch onboard",g:"Lunch ✓",gc:"tt"},
-    {t:"Afternoon",i:"🏛️",x:"Guided Split tour — 1,700 years of history & Diocletian's Palace",g:"Tour",gc:"te"},
-    {t:"Evening",i:"🥂",x:"Farewell dinner ashore in Split",g:"Farewell",gc:"tc2"},
+  {day:"10",ds:"Fri Jul 10",cls:"",bday:null,badge:"DAY 7",loc:"⛵ Overnight Dubrovnik",title:"Day 7 — Dubrovnik, Yours to Explore",acts:[
+    {t:"Morning",i:"🌅",x:"Breakfast onboard",g:"Breakfast ✓",gc:"tt"},
+    {t:"All day",i:"🏰",x:"Free day to explore Dubrovnik — City Walls walk (2km), Old Town, Game of Thrones filming locations",g:"Free",gc:"te"},
+    {t:"Tip",i:"💡",x:"Buy City Walls tickets early — they sell out! Cable car to Mount Srđ is worth it for the views",g:"Tip",gc:"tf"},
+    {t:"Evening",i:"🍷",x:"Final evening in Dubrovnik — soak it all in",g:"Last night",gc:"tc2"},
   ]},
-  {day:"11",ds:"Sat Jul 11",cls:"",bday:null,badge:"DAY 8",loc:"🛳️ Disembark Split → Dubrovnik Transfer",title:"Day 8 — Bon Voyage!",acts:[
-    {t:"Morning",i:"🍳",x:"Breakfast aboard — farewell to the crew",g:"Breakfast",gc:"tt"},
-    {t:"Morning",i:"🛳️",x:"Disembark in Split",g:"Depart",gc:"ty"},
-    {t:"Morning",i:"🚌",x:"Private coach transfer Split → Dubrovnik Airport (DBV)",g:"Transfer",gc:"ty"},
-    {t:"⚠️",i:"⏰",x:"Return flights NO EARLIER than noon from DBV",g:"Important",gc:"tf"},
+  {day:"11",ds:"Sat Jul 11",cls:"",bday:null,badge:"DAY 8",loc:"🛳️ Disembark Dubrovnik",title:"Day 8 — Farewell & Safe Travels!",acts:[
+    {t:"Morning",i:"🍳",x:"Breakfast onboard — farewell to the crew and your new friends",g:"Breakfast ✓",gc:"tt"},
+    {t:"Morning",i:"🛳️",x:"Disembark in Dubrovnik",g:"Depart",gc:"ty"},
+    {t:"⚠️",i:"⏰",x:"Book return flights NO EARLIER than noon from Dubrovnik Airport (DBV)",g:"Important",gc:"tf"},
     {t:"Always",i:"💙",x:"Croatia 2026 — Drop It Like It's Yacht. These memories are forever. 🇭🇷",g:"Always",gc:"tc2"},
   ]},
 ];
@@ -2001,5 +2032,5 @@ function renderAll(){
   renderPosttrip();
 }
 </script>
-</body>
-</html>
+
+</body></html>
