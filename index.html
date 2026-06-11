@@ -298,6 +298,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
 .it-detail-row{display:flex;gap:10px;font-size:12px;}
 .it-dk{color:var(--tg);font-weight:500;min-width:100px;flex-shrink:0;}
 .it-dv{color:var(--td);font-weight:600;}
+.it-tbd{color:var(--tg);font-weight:400;font-style:italic;}
 @media(max-width:600px){
   .hero{padding:28px 18px 28px;}.content{padding:20px 18px 80px;}
   .tabs-nav{padding:0 10px;}.tab-btn{padding:11px 10px;font-size:11px;}
@@ -1383,7 +1384,7 @@ function renderMyInfo() {
         <span class="it-leg-badge ${isTbd?'tbd':'ok'}">${isTbd?'⏳ TBD':'✓ Confirmed'}</span>
       </div>
       <div class="it-leg-details">
-        ${leg.details.filter(d=>d.v!=='').map(d=>`<div class="it-detail-row"><span class="it-dk">${d.k}</span><span class="it-dv">${d.v}</span></div>`).join('')}
+        ${leg.details.map(d=>`<div class="it-detail-row"><span class="it-dk">${d.k}</span><span class="it-dv${d.v===''?' it-tbd':''}">${d.v!==''?d.v:'TBD'}</span></div>`).join('')}
       </div>
     </div>`;
   }).join('');
