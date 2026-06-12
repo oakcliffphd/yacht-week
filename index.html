@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<!-- saved from url=(0057)file:///C:/Users/Adria/Downloads/croatia-dashboard_8.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Drop It Like It's Yacht — Croatia 2026</title>
-<link href="./index_files/css2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Firebase SDKs -->
-<script src="./index_files/firebase-app-compat.js.download"></script>
-<script src="./index_files/firebase-auth-compat.js.download"></script>
-<script src="./index_files/firebase-database-compat.js.download"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
 <style>
 :root{--od:#0d3d5c;--om:#1a6b8a;--ob:#2a9bbf;--op:#c8e8f4;--of:#e8f6fb;--tc:#c4622d;--tl:#e8825a;--cr:#f8f3ec;--gd:#c9963a;--gl:#e8be6a;--wh:#fff;--td:#0d2535;--tm:#3a5468;--tg:#7a9aaa;--gs:#2e8b57;--gw:#d4860a;--gr:#b83030;--ra:14px;}
@@ -311,13 +311,13 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
 <body>
 
 <!-- Auth Screen -->
-<div id="authScreen" style="display: flex;">
+<div id="authScreen">
   <div class="auth-card">
     <div class="auth-flag">⚓</div>
     <div class="auth-title">Drop It Like<br><span>It's Yacht</span></div>
     <div class="auth-sub">Croatia · Summer 2026 · Sign in to access the trip dashboard</div>
     <button class="auth-btn" onclick="signIn()">
-      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg>
+      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
       Sign in with Google
     </button>
     <div class="auth-note">Only guests on the list can access this dashboard</div>
@@ -327,7 +327,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
 
 <!-- User Bar -->
 <div class="user-bar" id="userBar" style="display:none">
-  <img class="user-av" id="userAv" src="file:///C:/Users/Adria/Downloads/croatia-dashboard_8.html" alt="">
+  <img class="user-av" id="userAv" src="" alt="">
   <div><div class="user-name" id="userName"></div><div class="user-email" id="userEmail"></div></div>
   <span class="user-match" id="userMatch"></span>
   <button class="user-signout" onclick="signOut()">Sign out</button>
@@ -367,16 +367,16 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
   <span class="cd-lbl">🇭🇷 M/S San Spirito awaits!</span>
 </div>
 <nav class="tabs-nav" id="tabsNav" style="display:none">
-  <button class="tab-btn" onclick="sw(&#39;myinfo&#39;,this)" id="myInfoTabBtn">👤 My Info</button>
-  <button class="tab-btn" onclick="sw(&#39;pretrip&#39;,this)">🇲🇦 Morocco</button>
-  <button class="tab-btn" onclick="sw(&#39;spain&#39;,this)">🇪🇸 Spain</button>
-  <button class="tab-btn" onclick="sw(&#39;split&#39;,this)">🇭🇷 Split</button>
-  <button class="tab-btn active" onclick="sw(&#39;itinerary&#39;,this)">⛵ Yacht Week</button>
-  <button class="tab-btn" onclick="sw(&#39;posttrip&#39;,this)">🇲🇪 Montenegro</button>
-  <button class="tab-btn" onclick="sw(&#39;weather&#39;,this)">🌤️ Weather</button>
-  <button class="tab-btn" onclick="sw(&#39;packing&#39;,this)">🎒 Packing</button>
-  <button class="tab-btn" onclick="sw(&#39;cabins&#39;,this)">🛳️ Cabins</button>
-  <button class="tab-btn" onclick="sw(&#39;flights&#39;,this)">✈️ Flights</button>
+  <button class="tab-btn" onclick="sw('myinfo',this)" id="myInfoTabBtn">👤 My Info</button>
+  <button class="tab-btn" onclick="sw('pretrip',this)">🇲🇦 Morocco</button>
+  <button class="tab-btn" onclick="sw('spain',this)">🇪🇸 Spain</button>
+  <button class="tab-btn" onclick="sw('split',this)">🇭🇷 Split</button>
+  <button class="tab-btn active" onclick="sw('itinerary',this)">⛵ Yacht Week</button>
+  <button class="tab-btn" onclick="sw('posttrip',this)">🇲🇪 Montenegro</button>
+  <button class="tab-btn" onclick="sw('weather',this)">🌤️ Weather</button>
+  <button class="tab-btn" onclick="sw('packing',this)">🎒 Packing</button>
+  <button class="tab-btn" onclick="sw('cabins',this)">🛳️ Cabins</button>
+  <button class="tab-btn" onclick="sw('flights',this)">✈️ Flights</button>
 </nav>
 <div class="content" id="tabContent" style="display:none">
   <div class="tab-panel" id="tab-myinfo"><div id="myInfoInner"></div></div>
@@ -388,7 +388,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
     <div class="sec-desc">M/S San Spirito · July 4–11, 2026 · Boards Omiš · Disembarks Dubrovnik · Vaya Adventures</div>
     <div class="itin" id="itinEl"></div>
     <div class="addon-box"><div class="addon-title">✨ Add-On Experiences</div><div class="addon-cards">
-      <div class="addon-card"><div class="ac-title">🇲🇦 Marrakesh, Morocco</div><div class="ac-dates">June 29 – July 2</div><div class="ac-desc">Pre-trip for Adria, Karnell, Kelly &amp; Claire.</div></div>
+      <div class="addon-card"><div class="ac-title">🇲🇦 Marrakesh, Morocco</div><div class="ac-dates">June 29 – July 2</div><div class="ac-desc">Pre-trip for Adria, Karnell, Kelly & Claire.</div></div>
       <div class="addon-card"><div class="ac-title">🇪🇸 Madrid, Spain</div><div class="ac-dates">July 2–3</div><div class="ac-desc">Karnell's 40th birthday celebration!</div></div>
       <div class="addon-card"><div class="ac-title">🇲🇪 Kotor, Montenegro</div><div class="ac-dates">July 11–15</div><div class="ac-desc">Post-trip after disembarking — Bay of Kotor awaits.</div></div>
     </div></div>
@@ -409,7 +409,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
   </div>
   <div class="tab-panel" id="tab-flights">
     <div class="sec-title">Flights</div>
-    <div class="sec-desc">Send details to karnellblack@gmail.com or adria_toliver@yahoo.com</div>
+    <div class="sec-desc">Send details to karnellblack&#64;gmail.com or adria_toliver&#64;yahoo.com</div>
     <div class="flt-wrap" id="flightsEl"></div>
   </div>
 </div>
@@ -2287,5 +2287,5 @@ function renderAll(){
   renderPosttrip();
 }
 </script>
-
-</body></html>
+</body>
+</html>
