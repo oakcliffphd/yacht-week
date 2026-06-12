@@ -351,10 +351,9 @@ body{font-family:'Outfit',sans-serif;background:var(--cr);color:var(--td);min-he
       <p class="hero-sub">Split → Dubrovnik · July 4–11, 2026 · Vaya Adventures</p>
     </div>
     <div class="hero-stats">
-      <div class="hs"><div class="hs-num">20</div><div class="hs-lbl">Guests</div></div>
+      <div class="hs"><div class="hs-num">19</div><div class="hs-lbl">Guests</div></div>
       <div class="hs"><div class="hs-num">18</div><div class="hs-lbl">Cabins</div></div>
       <div class="hs"><div class="hs-num">8</div><div class="hs-lbl">Days</div></div>
-      <div class="hs"><div class="hs-num">$4,550</div><div class="hs-lbl">Per Person</div></div>
     </div>
   </div>
 </div>
@@ -453,7 +452,6 @@ const GUESTS = [
   {n:"Cecilia",  full:"Cecilia",          i:"CE",c:"#2e8b57",role:"Guest · w/ Rob",           paid:3750,owed:4550,status:"partial", bd:[["Paid","$3,750"],["Balance","$800"]],           trips:["yacht"]},
   {n:"Kathryn",  full:"Kathryn Coquemont",i:"KT",c:"#7a3a9a",role:"Guest · w/ Francois",      paid:200, owed:4750,status:"partial", bd:[["Paid","$200"],["Balance","$4,550"]],           trips:["morocco","madrid","split","yacht"]},
   {n:"Francois", full:"Francois Coquemont",i:"FR",c:"#7a3a9a",role:"Guest · w/ Kathryn",      paid:200, owed:4550,status:"partial", bd:[["Paid","$200"],["Balance","$4,350"]],           trips:["madrid","split","yacht"]},
-  {n:"Jasmine",  full:"Jasmine Mitchell", i:"JA",c:"#d4860a",role:"Guest · solo cabin",       paid:2950,owed:4550,status:"partial", bd:[["Paid","$2,950"],["Balance","$1,600"]],         trips:["yacht"]},
   {n:"Mya",      full:"Mya Donald",       i:"MY",c:"#b83a6a",role:"Guest · solo cabin",       paid:4500,owed:4500,status:"paid",    bd:[["Total paid","$4,500 ✓"],["Balance","$0"]],     trips:["yacht"]},
   {n:"Karen",    full:"Karen Carnevale",  i:"KR",c:"#3a6a9a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
   {n:"Akilah",   full:"Akilah Mahon",     i:"AK",c:"#6b5ba4",role:"Guest · solo cabin",       paid:3010,owed:4550,status:"partial", bd:[["Paid","$3,010"],["Balance","$1,540"]],         trips:["split","yacht"]},
@@ -572,11 +570,12 @@ const GUEST_ITIN = {
       {k:"Connecting",    v:"IB8647 · MAD → RAK · 11:20AM – 12:20PM"},
       {k:"Booked Via",    v:"Capital One Travel"},
     ]},
-    { type:"transfer", status:"tbd", label:"🚗 RAK Airport → Riad Dar Assiya", date:"Mon Jun 29", details:[
+    { type:"transfer", status:"confirmed", label:"🚗 RAK Airport → Riad Dar Assiya", date:"Mon Jun 29", details:[
       {k:"Date",          v:"Mon Jun 29"},
-      {k:"Time",          v:"TBD"},
+      {k:"Time",          v:"4:30PM pickup"},
       {k:"Confirmation",  v:"TBD"},
-      {k:"Booked By",     v:"Karnell"},
+      {k:"Booked By",     v:"Karnell via Dar Assiya concierge"},
+      {k:"Contact",       v:"+212 (0) 524382180"},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 Riad Dar Assiya · Marrakesh", date:"Jun 29 – Jul 2", details:[
       {k:"Confirmation",  v:"9085024638580"},
@@ -586,11 +585,12 @@ const GUEST_ITIN = {
       {k:"Phone",         v:"+212 (0)5 24 38 21 80"},
       {k:"Booked Via",    v:"Trechelle (Fora Travel)"},
     ]},
-    { type:"transfer", status:"tbd", label:"🚗 Riad Dar Assiya → RAK Airport", date:"Thu Jul 2", details:[
+    { type:"transfer", status:"confirmed", label:"🚗 Riad Dar Assiya → RAK Airport", date:"Thu Jul 2", details:[
       {k:"Date",          v:"Thu Jul 2"},
       {k:"Time",          v:"TBD"},
       {k:"Confirmation",  v:"TBD"},
-      {k:"Booked By",     v:"Karnell"},
+      {k:"Booked By",     v:"Karnell via Dar Assiya concierge"},
+      {k:"Contact",       v:"+212 (0) 524382180"},
     ]},
     { type:"flight", status:"confirmed", label:"✈️ Marrakesh → Madrid", date:"Thu Jul 2", details:[
       {k:"Record Locator", v:"CLF3Z5"},
@@ -598,11 +598,11 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"Madrid (MAD) · Thu Jul 2 · 4:00PM"},
       {k:"Booked Via",    v:"American Express"},
     ]},
-    { type:"transfer", status:"tbd", label:"🚗 MAD Airport → UMusic Hotel", date:"Thu Jul 2", details:[
+    { type:"transfer", status:"confirmed", label:"🚗 MAD Airport → UMusic Hotel", date:"Thu Jul 2", details:[
       {k:"Date",          v:"Thu Jul 2"},
-      {k:"Time",          v:"TBD"},
-      {k:"Confirmation",  v:"TBD"},
-      {k:"Booked By",     v:"Karnell"},
+      {k:"Time",          v:"4:30PM pickup"},
+      {k:"Confirmation",  v:"519682516"},
+      {k:"Booked By",     v:"Karnell via Blacklane"},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 UMusic Hotel Madrid", date:"Jul 2 – Jul 3", details:[
       {k:"Confirmation",  v:"#ZO-AX1030-82539"},
@@ -612,11 +612,11 @@ const GUEST_ITIN = {
       {k:"Phone",         v:"+34 91 701 60 00"},
       {k:"Booked Via",    v:"American Express"},
     ]},
-    { type:"transfer", status:"tbd", label:"🚗 UMusic Hotel → MAD Airport", date:"Fri Jul 3", details:[
+    { type:"transfer", status:"confirmed", label:"🚗 UMusic Hotel → MAD Airport", date:"Fri Jul 3", details:[
       {k:"Date",          v:"Fri Jul 3"},
-      {k:"Time",          v:"TBD"},
-      {k:"Confirmation",  v:"TBD"},
-      {k:"Booked By",     v:"Karnell"},
+      {k:"Time",          v:"5:00AM pickup"},
+      {k:"Confirmation",  v:"870271583"},
+      {k:"Booked By",     v:"Karnell via Blacklane"},
     ]},
     { type:"flight", status:"confirmed", label:"✈️ Madrid → Split", date:"Fri Jul 3", details:[
       {k:"Record Locator", v:"H-N-KM4MF8"},
@@ -632,12 +632,12 @@ const GUEST_ITIN = {
       {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 AC Hotel by Marriott Split", date:"Jul 3 – Jul 4", details:[
-      {k:"Confirmation",  v:""},
-      {k:"Room Type",     v:"TBD"},
+      {k:"Confirmation",  v:"89334790"},
+      {k:"Room Type",     v:"Superior Twin, Sea View"},
       {k:"Address",       v:"Dalmatia Tower, Split, Croatia"},
       {k:"Website",       v:"marriott.com"},
       {k:"Phone",         v:"+385 21-226600"},
-      {k:"Booked Via",    v:"Akilah"},
+      {k:"Booked Via",    v:"Akilah via Marriott"},
     ]},
     { type:"transfer", status:"tbd", label:"🚗 AC Hotel Split → Yacht (Omiš)", date:"Sat Jul 4", details:[
       {k:"Date",          v:"Sat Jul 4"},
@@ -724,11 +724,12 @@ const GUEST_ITIN = {
       {k:"Connecting",    v:"Iberia 8754 · ORD → MAD · 4:30PM – 7:55AM+1, then IB8647 · MAD → RAK · 11:20AM – 12:20PM"},
       {k:"Booked Via",    v:""},
     ]},
-    { type:"transfer", status:"tbd", label:"🚗 RAK Airport → Riad Dar Assiya", date:"Mon Jun 29", details:[
+    { type:"transfer", status:"confirmed", label:"🚗 RAK Airport → Riad Dar Assiya", date:"Mon Jun 29", details:[
       {k:"Date",          v:"Mon Jun 29"},
-      {k:"Time",          v:"TBD"},
+      {k:"Time",          v:"4:30PM pickup"},
       {k:"Confirmation",  v:"TBD"},
-      {k:"Booked By",     v:"Karnell"},
+      {k:"Booked By",     v:"Karnell via Dar Assiya concierge"},
+      {k:"Contact",       v:"+212 (0) 524382180"},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 Riad Dar Assiya · Marrakesh", date:"Jun 29 – Jul 2", details:[
       {k:"Confirmation",  v:"9085024638580"},
@@ -738,11 +739,12 @@ const GUEST_ITIN = {
       {k:"Phone",         v:"+212 (0)5 24 38 21 80"},
       {k:"Booked Via",    v:"Trechelle (Fora Travel)"},
     ]},
-    { type:"transfer", status:"tbd", label:"🚗 Riad Dar Assiya → RAK Airport", date:"Thu Jul 2", details:[
+    { type:"transfer", status:"confirmed", label:"🚗 Riad Dar Assiya → RAK Airport", date:"Thu Jul 2", details:[
       {k:"Date",          v:"Thu Jul 2"},
       {k:"Time",          v:"TBD"},
       {k:"Confirmation",  v:"TBD"},
-      {k:"Booked By",     v:"Karnell"},
+      {k:"Booked By",     v:"Karnell via Dar Assiya concierge"},
+      {k:"Contact",       v:"+212 (0) 524382180"},
     ]},
     { type:"flight", status:"confirmed", label:"✈️ Marrakesh → Madrid", date:"Thu Jul 2", details:[
       {k:"Record Locator", v:"CLF3Z5"},
@@ -750,11 +752,11 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"Madrid (MAD) · Thu Jul 2 · 4:00PM"},
       {k:"Booked Via",    v:""},
     ]},
-    { type:"transfer", status:"tbd", label:"🚗 MAD Airport → UMusic Hotel", date:"Thu Jul 2", details:[
+    { type:"transfer", status:"confirmed", label:"🚗 MAD Airport → UMusic Hotel", date:"Thu Jul 2", details:[
       {k:"Date",          v:"Thu Jul 2"},
-      {k:"Time",          v:"TBD"},
-      {k:"Confirmation",  v:"TBD"},
-      {k:"Booked By",     v:"Karnell"},
+      {k:"Time",          v:"4:30PM pickup"},
+      {k:"Confirmation",  v:"519682516"},
+      {k:"Booked By",     v:"Karnell via Blacklane"},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 UMusic Hotel Madrid", date:"Jul 2 – Jul 3", details:[
       {k:"Confirmation",  v:""},
@@ -764,11 +766,11 @@ const GUEST_ITIN = {
       {k:"Phone",         v:""},
       {k:"Booked Via",    v:""},
     ]},
-    { type:"transfer", status:"tbd", label:"🚗 UMusic Hotel → MAD Airport", date:"Fri Jul 3", details:[
+    { type:"transfer", status:"confirmed", label:"🚗 UMusic Hotel → MAD Airport", date:"Fri Jul 3", details:[
       {k:"Date",          v:"Fri Jul 3"},
-      {k:"Time",          v:"TBD"},
-      {k:"Confirmation",  v:"TBD"},
-      {k:"Booked By",     v:"Karnell"},
+      {k:"Time",          v:"5:00AM pickup"},
+      {k:"Confirmation",  v:"870271583"},
+      {k:"Booked By",     v:"Karnell via Blacklane"},
     ]},
     { type:"flight", status:"confirmed", label:"✈️ Madrid → Split", date:"Fri Jul 3", details:[
       {k:"Record Locator", v:"H-N-KM4MF8"},
@@ -815,11 +817,12 @@ const GUEST_ITIN = {
       {k:"Connecting",    v:"Iberia 8754 · ORD → MAD · 4:30PM – 7:55AM+1, then IB8647 · MAD → RAK · 11:20AM – 12:20PM"},
       {k:"Booked Via",    v:""},
     ]},
-    { type:"transfer", status:"tbd", label:"🚗 RAK Airport → Riad Dar Assiya", date:"Mon Jun 29", details:[
+    { type:"transfer", status:"confirmed", label:"🚗 RAK Airport → Riad Dar Assiya", date:"Mon Jun 29", details:[
       {k:"Date",          v:"Mon Jun 29"},
-      {k:"Time",          v:"TBD"},
+      {k:"Time",          v:"4:30PM pickup"},
       {k:"Confirmation",  v:"TBD"},
-      {k:"Booked By",     v:"Karnell"},
+      {k:"Booked By",     v:"Karnell via Dar Assiya concierge"},
+      {k:"Contact",       v:"+212 (0) 524382180"},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 Riad Dar Assiya · Marrakesh", date:"Jun 29 – Jul 2", details:[
       {k:"Confirmation",  v:"9085024638580"},
@@ -829,11 +832,12 @@ const GUEST_ITIN = {
       {k:"Phone",         v:"+212 (0)5 24 38 21 80"},
       {k:"Booked Via",    v:"Trechelle (Fora Travel)"},
     ]},
-    { type:"transfer", status:"tbd", label:"🚗 Riad Dar Assiya → RAK Airport", date:"Thu Jul 2", details:[
+    { type:"transfer", status:"confirmed", label:"🚗 Riad Dar Assiya → RAK Airport", date:"Thu Jul 2", details:[
       {k:"Date",          v:"Thu Jul 2"},
       {k:"Time",          v:"TBD"},
       {k:"Confirmation",  v:"TBD"},
-      {k:"Booked By",     v:"Karnell"},
+      {k:"Booked By",     v:"Karnell via Dar Assiya concierge"},
+      {k:"Contact",       v:"+212 (0) 524382180"},
     ]},
     { type:"flight", status:"confirmed", label:"✈️ Marrakesh → Madrid", date:"Thu Jul 2", details:[
       {k:"Record Locator", v:"CLF3Z5"},
@@ -841,11 +845,11 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"Madrid (MAD) · Thu Jul 2 · 4:00PM"},
       {k:"Booked Via",    v:""},
     ]},
-    { type:"transfer", status:"tbd", label:"🚗 MAD Airport → UMusic Hotel", date:"Thu Jul 2", details:[
+    { type:"transfer", status:"confirmed", label:"🚗 MAD Airport → UMusic Hotel", date:"Thu Jul 2", details:[
       {k:"Date",          v:"Thu Jul 2"},
-      {k:"Time",          v:"TBD"},
-      {k:"Confirmation",  v:"TBD"},
-      {k:"Booked By",     v:"Karnell"},
+      {k:"Time",          v:"4:30PM pickup"},
+      {k:"Confirmation",  v:"519682516"},
+      {k:"Booked By",     v:"Karnell via Blacklane"},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 UMusic Hotel Madrid", date:"Jul 2 – Jul 3", details:[
       {k:"Confirmation",  v:""},
@@ -855,11 +859,11 @@ const GUEST_ITIN = {
       {k:"Phone",         v:""},
       {k:"Booked Via",    v:""},
     ]},
-    { type:"transfer", status:"tbd", label:"🚗 UMusic Hotel → MAD Airport", date:"Fri Jul 3", details:[
+    { type:"transfer", status:"confirmed", label:"🚗 UMusic Hotel → MAD Airport", date:"Fri Jul 3", details:[
       {k:"Date",          v:"Fri Jul 3"},
-      {k:"Time",          v:"TBD"},
-      {k:"Confirmation",  v:"TBD"},
-      {k:"Booked By",     v:"Karnell"},
+      {k:"Time",          v:"5:00AM pickup"},
+      {k:"Confirmation",  v:"870271583"},
+      {k:"Booked By",     v:"Karnell via Blacklane"},
     ]},
     { type:"flight", status:"confirmed", label:"✈️ Madrid → Split", date:"Fri Jul 3", details:[
       {k:"Record Locator", v:"H-N-KM4MF8"},
@@ -927,10 +931,10 @@ const GUEST_ITIN = {
       {k:"Note",          v:"Iberia Airlines · Direct · Traveling with Rey"},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 AC Hotel by Marriott Split", date:"Jul 2 – Jul 4", details:[
-      {k:"Room Type",     v:"TBD"},
+      {k:"Room Type",     v:"Superior Twin, Sea View"},
       {k:"Sharing With",  v:"Rey"},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
+      {k:"Booked Via",    v:"Akilah via Marriott"},
+      {k:"Confirmation",  v:"89334790"},
       {k:"Address",       v:"Dalmatia Tower, Split, Croatia"},
       {k:"Website",       v:"marriott.com"},
       {k:"Phone",         v:"+385 21-226600"},
@@ -1003,10 +1007,9 @@ const GUEST_ITIN = {
       {k:"Note",          v:"Iberia Airlines · Direct · Traveling with Conley"},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 AC Hotel by Marriott Split", date:"Jul 2 – Jul 4", details:[
-      {k:"Room Type",     v:"TBD"},
-      {k:"Sharing With",  v:"Conley"},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
+      {k:"Confirmation",  v:"89334790"},
+      {k:"Room Type",     v:"Superior Twin, Sea View"},
+      {k:"Booked Via",    v:"Akilah via Marriott"},
       {k:"Address",       v:"Dalmatia Tower, Split, Croatia"},
       {k:"Website",       v:"marriott.com"},
       {k:"Phone",         v:"+385 21-226600"},
@@ -1034,14 +1037,29 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"Amsterdam (AMS) · Fri Jul 3 · 7:40AM"},
       {k:"Connecting",    v:"DL9406 · AMS → SPU · 10:00AM – 12:05PM"},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Traveling with Deloria"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → AC Hotel Split", date:"Fri Jul 3", details:[
+      {k:"Date",          v:"Fri Jul 3"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 AC Hotel Split → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
       {k:"Cabin",         v:"T4"},
-      {k:"Sharing With",  v:"Deloria"},
       {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"flight", status:"confirmed", label:"✈️ Dubrovnik → Amsterdam → Portland", date:"Sun Jul 12", details:[
       {k:"Record Locator", v:""},
@@ -1049,8 +1067,6 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"Amsterdam (AMS) · Sun Jul 12 · 9:00AM"},
       {k:"Connecting",    v:"DL9216 · AMS → PDX · 10:25AM – 11:10AM"},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Jul 12 departure — overnight in Dubrovnik needed after Jul 11 disembark"},
     ]},
   ]},
   "Deloria": { legs: [
@@ -1060,14 +1076,29 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"Amsterdam (AMS) · Fri Jul 3 · 7:40AM"},
       {k:"Connecting",    v:"DL9406 · AMS → SPU · 10:00AM – 12:05PM"},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Traveling with Dex"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → AC Hotel Split", date:"Fri Jul 3", details:[
+      {k:"Date",          v:"Fri Jul 3"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 AC Hotel Split → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
       {k:"Cabin",         v:"T4"},
-      {k:"Sharing With",  v:"Dex"},
       {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"flight", status:"confirmed", label:"✈️ Dubrovnik → Amsterdam → Portland", date:"Sun Jul 12", details:[
       {k:"Record Locator", v:""},
@@ -1075,8 +1106,6 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"Amsterdam (AMS) · Sun Jul 12 · 9:00AM"},
       {k:"Connecting",    v:"DL9216 · AMS → PDX · 10:25AM – 11:10AM"},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Jul 12 departure — overnight in Dubrovnik needed after Jul 11 disembark"},
     ]},
   ]},
   "Rob": { legs: [
@@ -1086,23 +1115,36 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"Split (SPU) · TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → AC Hotel Split", date:"Fri Jul 3 or Sat Jul 4", details:[
+      {k:"Date",          v:"Fri Jul 3 or Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 AC Hotel Split → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
       {k:"Cabin",         v:"T5"},
-      {k:"Sharing With",  v:"Cecilia"},
       {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
     ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"flight", status:"confirmed", label:"✈️ Return Home · LH1709 DBV → MUC", date:"Sat Jul 11", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"TBD"},
+      {k:"Flight",        v:"LH1709 · DBV → MUC · 6:15PM"},
+      {k:"Arrives",       v:"Munich (MUC) · Sat Jul 11"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
     ]},
   ]},
   "Cecilia": { legs: [
@@ -1112,14 +1154,29 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"Split (SPU) · TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → AC Hotel Split", date:"Fri Jul 3 or Sat Jul 4", details:[
+      {k:"Date",          v:"Fri Jul 3 or Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 AC Hotel Split → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
       {k:"Cabin",         v:"T5"},
-      {k:"Sharing With",  v:"Rob"},
       {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
       {k:"Record Locator", v:""},
@@ -1127,8 +1184,6 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
     ]},
   ]},
   "Kathryn": { legs: [
@@ -1138,17 +1193,14 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"Marrakesh (RAK) · TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 Riad Dar Assiya · Marrakesh", date:"Jun 29 – Jul 2", details:[
+      {k:"Confirmation",  v:"9085024638580"},
       {k:"Room Type",     v:"TBD"},
-      {k:"Sharing With",  v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
       {k:"Address",       v:"20 Derb Ouali Kaat Benahid, Marrakech Medina"},
       {k:"Website",       v:"darassiya.com"},
       {k:"Phone",         v:"+212 (0)5 24 38 21 80"},
+      {k:"Booked Via",    v:"Trechelle (Fora Travel)"},
     ]},
     { type:"flight", status:"confirmed", label:"✈️ Marrakesh → Madrid", date:"Thu Jul 2", details:[
       {k:"Record Locator", v:"CLF3Z5"},
@@ -1156,135 +1208,131 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"Madrid (MAD) · Thu Jul 2 · 4:00PM"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:"CLF3Z5"},
-      {k:"Note",          v:""},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 UMusic Hotel Madrid", date:"Jul 2 – Jul 3", details:[
-      {k:"Room Type",     v:"TBD"},
-      {k:"Sharing With",  v:""},
-      {k:"Booked Via",    v:""},
       {k:"Confirmation",  v:""},
+      {k:"Room Type",     v:"TBD"},
       {k:"Address",       v:"Calle de la Paz, Sol · Madrid, Spain"},
       {k:"Website",       v:"umusic-hotels.com"},
       {k:"Phone",         v:""},
+      {k:"Booked Via",    v:""},
     ]},
-    { type:"flight", status:"tbd", label:"✈️ Madrid → Split", date:"Fri Jul 3", details:[
+    { type:"flight", status:"confirmed", label:"✈️ Paris → Split · TO4214", date:"Wed Jul 3", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"Split (SPU) · Fri Jul 3 · TBD"},
+      {k:"Flight",        v:"TO4214 · ORY → SPU · 12:50PM"},
+      {k:"Arrives",       v:"Split (SPU) · Wed Jul 3 · TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → AC Hotel Split", date:"Wed Jul 3 or Sat Jul 4", details:[
+      {k:"Date",          v:"Wed Jul 3 or Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 AC Hotel Split → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
       {k:"Cabin",         v:"T6"},
-      {k:"Sharing With",  v:"Francois"},
       {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
     ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 12", details:[
+      {k:"Date",          v:"Sat Jul 12"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"flight", status:"confirmed", label:"✈️ Return Home · TO4209 DBV → ORY", date:"Sat Jul 12", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"TBD"},
+      {k:"Flight",        v:"TO4209 · DBV → ORY · 7:35PM"},
+      {k:"Arrives",       v:"Paris Orly (ORY) · Sat Jul 12"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
     ]},
   ]},
   "Francois": { legs: [
-    { type:"flight", status:"tbd", label:"✈️ Home → Madrid", date:"TBD", details:[
+    { type:"flight", status:"confirmed", label:"✈️ Paris → Split · TO4214", date:"Wed Jul 3", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"Madrid (MAD) · TBD"},
+      {k:"Flight",        v:"TO4214 · ORY → SPU · 12:50PM"},
+      {k:"Arrives",       v:"Split (SPU) · Wed Jul 3 · TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → AC Hotel Split", date:"Wed Jul 3", details:[
+      {k:"Date",          v:"Wed Jul 3"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 UMusic Hotel Madrid", date:"Jul 2 – Jul 3", details:[
-      {k:"Room Type",     v:"TBD"},
-      {k:"Sharing With",  v:"Kathryn"},
-      {k:"Booked Via",    v:""},
       {k:"Confirmation",  v:""},
+      {k:"Room Type",     v:"TBD"},
       {k:"Address",       v:"Calle de la Paz, Sol · Madrid, Spain"},
       {k:"Website",       v:"umusic-hotels.com"},
       {k:"Phone",         v:""},
-    ]},
-    { type:"flight", status:"tbd", label:"✈️ Madrid → Split", date:"Fri Jul 3", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"Split (SPU) · Fri Jul 3 · TBD"},
-      {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 AC Hotel Split → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
       {k:"Cabin",         v:"T6"},
-      {k:"Sharing With",  v:"Kathryn"},
       {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
     ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 12", details:[
+      {k:"Date",          v:"Sat Jul 12"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"flight", status:"confirmed", label:"✈️ Return Home · TO4209 DBV → ORY", date:"Sat Jul 12", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"TBD"},
+      {k:"Flight",        v:"TO4209 · DBV → ORY · 7:35PM"},
+      {k:"Arrives",       v:"Paris Orly (ORY) · Sat Jul 12"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
-    ]},
-  ]},
-  "Jasmine": { legs: [
-    { type:"flight", status:"tbd", label:"✈️ Home → Split", date:"Fri Jul 3 or Sat Jul 4", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"Split (SPU) · TBD"},
-      {k:"Connecting",    v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
-    ]},
-    { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
-      {k:"Cabin",         v:"T7 · Solo"},
-      {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
-      {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
-    ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"TBD"},
-      {k:"Connecting",    v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
     ]},
   ]},
   "Mya": { legs: [
-    { type:"flight", status:"tbd", label:"✈️ Home → Split", date:"Fri Jul 3 or Sat Jul 4", details:[
+    { type:"flight", status:"confirmed", label:"✈️ Dallas → Paris → Split", date:"Sat Jul 4", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"Split (SPU) · TBD"},
-      {k:"Connecting",    v:""},
+      {k:"Flight",        v:"AA48 · DFW → CDG · 2:05PM, then OU475 · CDG → SPU"},
+      {k:"Arrives",       v:"Split (SPU) · Sat Jul 4 · TBD"},
+      {k:"Connecting",    v:"OU475 · CDG → SPU"},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
-      {k:"Cabin",         v:"T8 · Solo"},
+      {k:"Cabin",         v:"L1 · Solo"},
       {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
     ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"flight", status:"confirmed", label:"✈️ Return Home · AA8016 DBV → DUB", date:"Sat Jul 11", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"TBD"},
+      {k:"Flight",        v:"AA8016 · DBV → DUB · 12:50PM"},
+      {k:"Arrives",       v:"Dublin (DUB) · Sat Jul 11"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
     ]},
   ]},
   "Karen": { legs: [
@@ -1294,147 +1342,249 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"Split (SPU) · TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → AC Hotel Split", date:"Fri Jul 3 or Sat Jul 4", details:[
+      {k:"Date",          v:"Fri Jul 3 or Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 AC Hotel Split → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
       {k:"Cabin",         v:"T9 · Solo"},
       {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
     ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"flight", status:"confirmed", label:"✈️ Return Home · UA386 DBV", date:"Sat Jul 11", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
+      {k:"Flight",        v:"UA386 · DBV · 12:15PM"},
       {k:"Arrives",       v:"TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
     ]},
   ]},
   "Akilah": { legs: [
-    { type:"flight", status:"tbd", label:"✈️ Home → Split", date:"Fri Jul 3", details:[
+    { type:"flight", status:"confirmed", label:"✈️ Home → Split", date:"Fri Jul 3", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"Split (SPU) · Fri Jul 3 · TBD"},
+      {k:"Flight",        v:"EZS1506 · AMS → SPU · TBD"},
+      {k:"Arrives",       v:"Split (SPU) · Fri Jul 3 · 2:05PM"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
     ]},
     { type:"hotel", status:"confirmed", label:"🏨 AC Hotel by Marriott Split", date:"Jul 3 – Jul 4", details:[
-      {k:"Room Type",     v:"TBD"},
-      {k:"Sharing With",  v:"Adria"},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
+      {k:"Confirmation",  v:"89334790"},
+      {k:"Room Type",     v:"Superior Twin, Sea View"},
       {k:"Address",       v:"Dalmatia Tower, Split, Croatia"},
       {k:"Website",       v:"marriott.com"},
       {k:"Phone",         v:"+385 21-226600"},
+      {k:"Booked Via",    v:"Akilah via Marriott"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 AC Hotel Split → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
       {k:"Cabin",         v:"T10 · Solo"},
       {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
     ]},
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"flight", status:"confirmed", label:"✈️ Return Home · EZS1506 DBV → Geneva", date:"Sat Jul 11", details:[
+      {k:"Record Locator", v:""},
+      {k:"Flight",        v:"EZS1506 · DBV → GVA · 3:00PM"},
+      {k:"Arrives",       v:"Geneva (GVA) · Sat Jul 11"},
+      {k:"Connecting",    v:""},
+      {k:"Booked Via",    v:""},
+    ]},
+  ]},
+  "Bre": { legs: [
+    { type:"flight", status:"confirmed", label:"✈️ Amsterdam → Split · OU652", date:"Sat Jul 4", details:[
+      {k:"Record Locator", v:""},
+      {k:"Flight",        v:"OU652 · AMS → SPU · 11:20AM"},
+      {k:"Arrives",       v:"Split (SPU) · Sat Jul 4 · 3:10PM"},
+      {k:"Connecting",    v:""},
+      {k:"Booked Via",    v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
+      {k:"Cabin",         v:"T7 · Solo"},
+      {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
+      {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"flight", status:"confirmed", label:"✈️ Return Home · AA7058 DBV", date:"Sat Jul 11", details:[
+      {k:"Record Locator", v:""},
+      {k:"Flight",        v:"AA7058 · DBV · 1:05PM"},
+      {k:"Arrives",       v:"TBD"},
+      {k:"Connecting",    v:""},
+      {k:"Booked Via",    v:""},
+    ]},
+  ]},
+  "Lauren": { legs: [
+    { type:"flight", status:"confirmed", label:"✈️ Amsterdam → Split · OU652", date:"Sat Jul 4", details:[
+      {k:"Record Locator", v:""},
+      {k:"Flight",        v:"OU652 · AMS → SPU · 11:20AM"},
+      {k:"Arrives",       v:"Split (SPU) · Sat Jul 4 · 3:10PM"},
+      {k:"Connecting",    v:""},
+      {k:"Booked Via",    v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
+      {k:"Cabin",         v:"T8 · Solo"},
+      {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
+      {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
     { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
       {k:"Record Locator", v:""},
       {k:"Flight",        v:"TBD"},
       {k:"Arrives",       v:"TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
     ]},
   ]},
-  "Bre": { legs: [
-    { type:"flight", status:"confirmed", label:"✈️ Amsterdam → Split", date:"Fri Jul 3", details:[
+  "Chelsea": { legs: [
+    { type:"flight", status:"confirmed", label:"✈️ Home → Split · OU417", date:"Sat Jul 4", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"OU451 · AMS → SPU · 11:20AM"},
-      {k:"Arrives",       v:"Split (SPU) · Fri Jul 3 · 3:10PM"},
+      {k:"Flight",        v:"OU417 · XXX → SPU · 11:50AM"},
+      {k:"Arrives",       v:"Split (SPU) · Sat Jul 4 · TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
     ]},
-    { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
-      {k:"Cabin",         v:"L1 · Solo"},
-      {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
-      {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
-    ]},
-    { type:"flight", status:"confirmed", label:"✈️ Return Home from Dubrovnik", date:"Sat Jul 11", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"AA7058 · DBV · 1:05PM"},
-      {k:"Arrives",       v:"TBD"},
-      {k:"Connecting",    v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
-    ]},
-  ]},
-  "Lauren": { legs: [
-    { type:"flight", status:"tbd", label:"✈️ Home → Split", date:"Fri Jul 3 or Sat Jul 4", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"Split (SPU) · TBD"},
-      {k:"Connecting",    v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
       {k:"Cabin",         v:"L2 · Solo"},
       {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
     ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"flight", status:"confirmed", label:"✈️ Return Home · OU418 DBV → FRA", date:"Sat Jul 11", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"TBD"},
+      {k:"Flight",        v:"OU418 · DBV → FRA · 4:00PM"},
+      {k:"Arrives",       v:"Frankfurt (FRA) · Sat Jul 11"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
     ]},
   ]},
-  "Chelsea": { legs: [
-    { type:"flight", status:"confirmed", label:"✈️ Home → Split", date:"Sat Jul 4", details:[
+  "Christen": { legs: [
+    { type:"flight", status:"confirmed", label:"✈️ Home → Split · OU417", date:"Sat Jul 4", details:[
       {k:"Record Locator", v:""},
-      {k:"Flight",        v:"OU417 · 11:50AM"},
+      {k:"Flight",        v:"OU417 · XXX → SPU · 11:50AM"},
       {k:"Arrives",       v:"Split (SPU) · Sat Jul 4 · TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
+      {k:"Cabin",         v:"L3 · Solo"},
+      {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
+      {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"flight", status:"confirmed", label:"✈️ Return Home · OU418 DBV → FRA", date:"Sat Jul 11", details:[
+      {k:"Record Locator", v:""},
+      {k:"Flight",        v:"OU418 · DBV → FRA · 4:00PM"},
+      {k:"Arrives",       v:"Frankfurt (FRA) · Sat Jul 11"},
+      {k:"Connecting",    v:""},
+      {k:"Booked Via",    v:""},
+    ]},
+  ]},
+  "Morgan": { legs: [
+    { type:"flight", status:"confirmed", label:"✈️ Portland → Split", date:"Wed Jul 2 – Thu Jul 3", details:[
+      {k:"Record Locator", v:""},
+      {k:"Flight",        v:"DE2091 · PDX · Departs 3:35PM"},
+      {k:"Arrives",       v:"Split (SPU) · Thu Jul 3 · 10:25PM"},
+      {k:"Connecting",    v:"OU415 · Croatia Airlines"},
+      {k:"Booked Via",    v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 SPU Airport → AC Hotel Split", date:"Thu Jul 3", details:[
+      {k:"Date",          v:"Thu Jul 3"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
+    ]},
+    { type:"hotel", status:"confirmed", label:"🏨 AC Hotel by Marriott Split", date:"Jul 3 – Jul 4", details:[
       {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departure airport TBD · Traveling with Christen"},
+      {k:"Room Type",     v:"TBD"},
+      {k:"Address",       v:"Dalmatia Tower, Split, Croatia"},
+      {k:"Website",       v:"marriott.com"},
+      {k:"Phone",         v:"+385 21-226600"},
+      {k:"Booked Via",    v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 AC Hotel Split → Yacht (Omiš)", date:"Sat Jul 4", details:[
+      {k:"Date",          v:"Sat Jul 4"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
       {k:"Cabin",         v:"L4 · Solo"},
       {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
       {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
     ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"TBD"},
-      {k:"Connecting",    v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
-    ]},
-  ]},
-  "Christen": { legs: [
-    { type:"flight", status:"confirmed", label:"✈️ Home → Split", date:"Sat Jul 4", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"OU417 · 11:50AM"},
-      {k:"Arrives",       v:"Split (SPU) · Sat Jul 4 · TBD"},
-      {k:"Connecting",    v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departure airport TBD · Traveling with Chelsea"},
-    ]},
-    { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
-      {k:"Cabin",         v:"L5 · Solo"},
-      {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
-      {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
+    { type:"transfer", status:"tbd", label:"🚗 Yacht (Dubrovnik) → DBV Airport", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Karnell"},
     ]},
     { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
       {k:"Record Locator", v:""},
@@ -1442,35 +1592,10 @@ const GUEST_ITIN = {
       {k:"Arrives",       v:"TBD"},
       {k:"Connecting",    v:""},
       {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
     ]},
   ]},
-  "Morgan": { legs: [
-    { type:"flight", status:"tbd", label:"✈️ Home → Split", date:"Fri Jul 3 or Sat Jul 4", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"Split (SPU) · TBD"},
-      {k:"Connecting",    v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:""},
-    ]},
-    { type:"yacht", status:"confirmed", label:"⛵ M/S San Spirito · Yacht Week", date:"Jul 4 – Jul 11", details:[
-      {k:"Cabin",         v:"L6 · Solo"},
-      {k:"Boards",        v:"Omiš · Jul 4 · 1:00PM"},
-      {k:"Disembarks",    v:"Dubrovnik · Jul 11 · 9:00AM"},
-    ]},
-    { type:"flight", status:"tbd", label:"✈️ Return Home", date:"Sat Jul 11+", details:[
-      {k:"Record Locator", v:""},
-      {k:"Flight",        v:"TBD"},
-      {k:"Arrives",       v:"TBD"},
-      {k:"Connecting",    v:""},
-      {k:"Booked Via",    v:""},
-      {k:"Confirmation",  v:""},
-      {k:"Note",          v:"Departs Dubrovnik (DBV) · No flights before noon Jul 11"},
-    ]},
-  ]},
+
+
 };
 
 // Default itinerary for guests with no specific data
@@ -1609,7 +1734,7 @@ const PACK=[
   ]},
   {cat:"Yacht Life Clothing",icon:"⚓",items:[
     {n:"Swimsuits x4+",e:true},{n:"Non-slip boat / deck shoes",e:true},
-    {n:"Smart outfit for Captain's Dinner (Jul 9)",e:true},{n:"Cover-ups & kaftans",e:false},
+    {n:"Smart outfit for Captain's Dinner (Jul 9)",e:true},{n:"Welcome Dinner — Old Money Coastal Elegance",e:true},{n:"Captain's Dinner — All White",e:true},{n:"Closing Day — Black Swim Attire",e:true},{n:"Cover-ups & kaftans",e:false},
     {n:"Light linen shorts / trousers",e:false},{n:"Sundresses / casual tops",e:false},
     {n:"Light layer / wrap for breezy evenings",e:false},{n:"Jacket",e:false},
     {n:"Flip flops",e:false},{n:"Sandals",e:false},{n:"Shoes (shore & evenings)",e:false},
@@ -1725,15 +1850,15 @@ const CABINS=[
   {num:"T4",name:"Cabin T4",    color:"#2e6b9a",type:"Shared",deck:"top",  guests:[{idx:5},{idx:6}]},
   {num:"T5",name:"Cabin T5",    color:"#2e8b57",type:"Shared",deck:"top",  guests:[{idx:7},{idx:8}]},
   {num:"T6",name:"Cabin T6",    color:"#7a3a9a",type:"Shared",deck:"top",  guests:[{idx:9},{idx:10}]},
-  {num:"T7",name:"Cabin T7",    color:"#4a7a6a",type:"Solo",  deck:"top",  guests:[{idx:11,tag:"solo"}]},
-  {num:"T8",name:"Cabin T8",    color:"#4a7a6a",type:"Solo",  deck:"top",  guests:[{idx:12,tag:"solo"}]},
-  {num:"T9",name:"Cabin T9",    color:"#4a7a6a",type:"Solo",  deck:"top",  guests:[{idx:13,tag:"solo"}]},
-  {num:"T10",name:"Cabin T10",  color:"#4a7a6a",type:"Solo",  deck:"top",  guests:[{idx:14,tag:"solo"}]},
-  {num:"L1",name:"Cabin L1",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[{idx:15,tag:"solo"}]},
+  {num:"T7",name:"Cabin T7",    color:"#4a7a6a",type:"Solo",  deck:"top",  guests:[{idx:14,tag:"solo"}]},
+  {num:"T8",name:"Cabin T8",    color:"#4a7a6a",type:"Solo",  deck:"top",  guests:[{idx:15,tag:"solo"}]},
+  {num:"T9",name:"Cabin T9",    color:"#4a7a6a",type:"Solo",  deck:"top",  guests:[{idx:12,tag:"solo"}]},
+  {num:"T10",name:"Cabin T10",  color:"#4a7a6a",type:"Solo",  deck:"top",  guests:[{idx:13,tag:"solo"}]},
+  {num:"L1",name:"Cabin L1",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[{idx:11,tag:"solo"}]},
   {num:"L2",name:"Cabin L2",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[{idx:16,tag:"solo"}]},
   {num:"L3",name:"Cabin L3",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[{idx:17,tag:"solo"}]},
   {num:"L4",name:"Cabin L4",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[{idx:18,tag:"solo"}]},
-  {num:"L5",name:"Cabin L5",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[{idx:19,tag:"solo"}]},
+  {num:"L5",name:"Cabin L5",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[],},
   {num:"L6",name:"Cabin L6",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[]},
   {num:"L7",name:"Cabin L7",    color:"#4a7a6a",type:"Solo",  deck:"lower",guests:[]},
   {num:"L8",name:"Crew Cabin",  color:"#7a8a9a",type:"Crew",  deck:"lower",guests:[]},
@@ -2076,19 +2201,14 @@ function renderPosttrip(){
     <div class="pt-crew"><div class="pt-crew-lbl">Post-Trip Guests</div><div class="pt-chips">
       <div class="ptchip" style="background:#9a3a8a"><span>AD</span>Adria ✓</div>
       <div class="ptchip" style="background:#3a6a9a"><span>KM</span>Kim ✓</div>
-      <div class="ptchip" style="background:#2e8b57"><span>MC</span>Michelle ✓</div>
-      <div class="ptchip" style="background:#4a6a9a"><span>MR</span>Maurice ✓</div>
-      <div class="ptchip" style="background:#888;opacity:.65"><span>AM</span>Amber TBD</div>
     </div></div>
     <div class="pt-cards">
       <div class="pt-card hotel"><div class="pt-chd">🏨 Regent Porto Montenegro · An IHG Hotel · Jul 11–15</div>
         <div class="pt-hd">Obala bb, Porto Montenegro, Tivat · 5-Star · ihg.com/regent</div>
         <div class="pt-hdd">Luxury hotel inside Porto Montenegro's superyacht marina on Boka Bay · 4 pools incl. infinity pool · Regent Spa · Murano seafood restaurant · Onyx Bar · 10 mins from Tivat Airport</div>
         <div class="pt-rooms">
-          <div class="pt-rrow">${pax([{c:"#2e8b57",l:"MC Michelle"}])}<span class="pt-rn">Booked ✓</span></div>
-          <div class="pt-rrow">${pax([{c:"#9a3a8a",l:"AD Adria"},{c:"#3a6a9a",l:"KM Kim"}])}<span class="pt-rn tbd">Room TBD</span></div>
-          <div class="pt-rrow">${pax([{c:"#4a6a9a",l:"MR Maurice"}])}<span class="pt-rn tbd">Room TBD</span></div>
-          <div class="pt-rrow">${pax([{c:"#888",l:"AM Amber"}])}<span class="pt-rn tbd">TBD</span></div>
+          <div class="pt-rrow">${pax([{c:"#9a3a8a",l:"AD Adria"}])}<span class="pt-rn tbd">Room TBD</span></div>
+          <div class="pt-rrow">${pax([{c:"#3a6a9a",l:"KM Kim"}])}<span class="pt-rn tbd">Room TBD</span></div>
         </div>
         <div class="pt-contact">📞 +382 (0)32 660 660 · reservations.pm@regenthotels.com</div>
       </div>
@@ -2098,7 +2218,7 @@ function renderPosttrip(){
         <div class="day-loc">✈️ Disembark → Tivat, Montenegro</div><div class="day-title">Arrival in Montenegro</div>
         <div class="pt-cards">
           <div class="pt-card"><div class="pt-chd">✈️ Adria — DBV→BEG→TIV</div><div class="pt-frow">${fleg('DBV','BEG','Air Serbia JU723 · 3:05PM–4:20PM')}${fleg('BEG','TIV','Air Serbia JU688 · 5:25PM–6:25PM')}</div><div class="pt-note">📌 Booked via American Express · Tivat Airport is 8km from Kotor</div><div class="pt-pax">${pax([{c:"#9a3a8a",l:"AD Adria"}])}</div></div>
-          <div class="pt-card tbd"><div class="pt-chd">✈️ Kim, Michelle, Maurice & Amber — Flights TBD</div><div class="pt-pax">${pax([{c:"#3a6a9a",l:"KM Kim"},{c:"#2e8b57",l:"MC Michelle"},{c:"#4a6a9a",l:"MR Maurice"},{c:"#888",l:"AM Amber"}])}</div></div>
+          <div class="pt-card tbd"><div class="pt-chd">✈️ Kim — Flights TBD</div><div class="pt-pax">${pax([{c:"#3a6a9a",l:"KM Kim"}])}</div></div>
         </div>
         <div class="acts"><div class="act"><span class="at">Arrive</span><span class="ai">🚗</span><span class="ax">Transfer from Tivat Airport to Kotor (~15 mins)</span></div><div class="act"><span class="at">Evening</span><span class="ai">🍽️</span><span class="ax">Welcome dinner in Kotor's Old Town</span></div></div>
       </div></div>
