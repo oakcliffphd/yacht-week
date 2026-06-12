@@ -467,7 +467,7 @@ const GUEST_EMAILS = {
   "adria_toliver&#64;yahoo.com": 0,
   "karnellblack&#64;gmail.com": 1,
   // Other guests — add emails as they sign up or share them with you
-  // Format: "email@example.com": INDEX (0-21 matching GUESTS array order)
+  // Format: "email&#64;example.com": INDEX (0-21 matching GUESTS array order)
 };
 
 const FIRST_NAMES = GUESTS.map(g => g.n.toLowerCase());
@@ -2053,7 +2053,7 @@ function renderPretrip(){
         <div class="day-loc">🇲🇦 Arrive Marrakesh, Morocco</div><div class="day-title">Welcome to the Medina</div>
         <div class="pt-cards">
           <div class="pt-card"><div class="pt-chd">✈️ MAD→RAK · All crew</div><div class="pt-frow">${fleg('MAD','RAK','Iberia Express IB8647 · 11:20AM–12:20PM · Non-stop')}</div><div class="pt-note">ℹ️ Claire departs home from Madrid after Jul 2</div><div class="pt-pax">${pax([{c:"#9a3a8a",l:"AD"},{c:"#c4622d",l:"KA"},{c:"#c4622d",l:"KE"},{c:"#3a8a6a",l:"CL"}])}</div></div>
-          <div class="pt-card hotel"><div class="pt-chd">🏨 Riad Dar Assiya · Jun 29–Jul 2</div><div class="pt-hd">20 Derb Ouali Kaat Benahid, Marrakech Medina · darassiya.com</div><div class="pt-hdd">15th-century boutique riad · plunge pool · rooftop terrace · Atlas Mountain views</div><div class="pt-rooms"><div class="pt-rrow">${pax([{c:"#9a3a8a",l:"AD Adria"}])}<span class="pt-rn">Dueria Room</span></div><div class="pt-rrow">${pax([{c:"#c4622d",l:"KA Karnell"},{c:"#c4622d",l:"KE Kelly"}])}<span class="pt-rn">Bauhi Room</span></div><div class="pt-rrow">${pax([{c:"#3a8a6a",l:"CL Claire"}])}<span class="pt-rn tbd">Room TBD</span></div></div><div class="pt-contact">📞 +212 (0)5 24 38 21 80 · info@darassiya.com</div></div>
+          <div class="pt-card hotel"><div class="pt-chd">🏨 Riad Dar Assiya · Jun 29–Jul 2</div><div class="pt-hd">20 Derb Ouali Kaat Benahid, Marrakech Medina · darassiya.com</div><div class="pt-hdd">15th-century boutique riad · plunge pool · rooftop terrace · Atlas Mountain views</div><div class="pt-rooms"><div class="pt-rrow">${pax([{c:"#9a3a8a",l:"AD Adria"}])}<span class="pt-rn">Dueria Room</span></div><div class="pt-rrow">${pax([{c:"#c4622d",l:"KA Karnell"},{c:"#c4622d",l:"KE Kelly"}])}<span class="pt-rn">Bauhi Room</span></div><div class="pt-rrow">${pax([{c:"#3a8a6a",l:"CL Claire"}])}<span class="pt-rn tbd">Room TBD</span></div></div><div class="pt-contact">📞 +212 (0)5 24 38 21 80 · info&#64;darassiya.com</div></div>
         </div>
         <div class="acts">
           <div class="act"><span class="at">Arrival</span><span class="ai">🍽️</span><span class="ax">Lunch & tea on arrival at the Riad</span></div>
@@ -2213,7 +2213,7 @@ function renderPosttrip(){
           <div class="pt-rrow">${pax([{c:"#9a3a8a",l:"AD Adria"}])}<span class="pt-rn tbd">Room TBD</span></div>
           <div class="pt-rrow">${pax([{c:"#3a6a9a",l:"KM Kim"}])}<span class="pt-rn tbd">Room TBD</span></div>
         </div>
-        <div class="pt-contact">📞 +382 (0)32 660 660 · reservations.pm@regenthotels.com</div>
+        <div class="pt-contact">📞 +382 (0)32 660 660 · reservations.pm&#64;regenthotels.com</div>
       </div>
     </div>
     <div class="itin" style="margin-top:16px">
