@@ -1994,19 +1994,19 @@ function renderFlights(){
       <div class="fpax">${pc([G[0],G[1],G[2]])}</div>
     </div>
 
-    <div class="flt-card"><div class="flt-top"><span class="ft i">Croatia Airlines · AMS→SPU</span><span class="ft g">OU451</span></div>
-      ${rt('AMS','Amsterdam','11:20 AM','Fri Jul 3','SPU','Split','3:10 PM','Fri Jul 3','OU451','3h 50m')}
-      <div class="fpax">${pc([G[15]])}</div>
+    <div class="flt-card"><div class="flt-top"><span class="ft i">Croatia Airlines · OU652 · Jul 4</span><span class="ft g">11:20 AM AMS</span></div>
+      ${rt('AMS','Amsterdam','11:20 AM','Sat Jul 4','SPU','Split','3:10 PM','Sat Jul 4','OU652','')}
+      <div class="fpax">${pc([G[14],G[15]])}</div>
     </div>
 
     <div class="flt-card"><div class="flt-top"><span class="ft i">Croatia Airlines · OU417 · Jul 4</span><span class="ft g">11:50 AM · Departure TBD</span></div>
       ${rt('???','Departure TBD','11:50 AM','Sat Jul 4','SPU','Split','TBD','Sat Jul 4','OU417','')}
-      <div class="fpax">${pc([G[18],G[19]])}</div>
+      <div class="fpax">${pc([G[16],G[17]])}</div>
     </div>
 
     <div class="flt-card"><div class="flt-top"><span class="ft w">Remaining guests — TBD</span><span class="ft i">Arrive by Jul 4 · 1 PM boarding</span></div>
-      ${rt('USA','Your home city','TBD','Jul 3','SPU','Split Airport','TBD','Jul 3 or Jul 4','Your airline','')}
-      <div class="fpax">${pc([G[3],G[4],G[7],G[8],G[9],G[10],G[11],G[12],G[13],G[14],G[16],G[17],G[20]].filter(Boolean))}</div>
+      ${rt('???','Home city','TBD','Jul 3 or 4','SPU','Split Airport','TBD','Jul 3 or Jul 4','Your airline','')}
+      <div class="fpax">${pc([G[3],G[4],G[7],G[8],G[9],G[10],G[11],G[12],G[13],G[18]].filter(Boolean))}</div>
     </div>
 
     <div class="flt-gt">✈️ Return — Fly home from Dubrovnik (DBV) · July 11–12, 2026</div>
@@ -2019,12 +2019,12 @@ function renderFlights(){
 
     <div class="flt-card"><div class="flt-top"><span class="ft i">American Airlines · AA7058</span><span class="ft g">Jul 11 · 1:05 PM</span><span class="ft w">Full routing TBD</span></div>
       ${rt('DBV','Dubrovnik','1:05 PM','Sat Jul 11','TBD','Destination TBD','TBD','Sat Jul 11','AA7058','')}
-      <div class="fpax">${pc([G[15]])}</div>
+      <div class="fpax">${pc([G[14]])}</div>
     </div>
 
     <div class="flt-card"><div class="flt-top"><span class="ft w">Remaining guests — TBD</span><span class="ft i">No flights before noon on Jul 11</span></div>
-      ${rt('DBV','Dubrovnik Airport','After noon','Sat Jul 11','USA','Your home city','TBD','Jul 11 or Jul 12','Your airline','')}
-      <div class="fpax">${pc([G[3],G[4],G[7],G[8],G[9],G[10],G[11],G[12],G[13],G[14],G[16],G[17],G[20]].filter(Boolean))}</div>
+      ${rt('DBV','Dubrovnik Airport','After noon','Sat Jul 11','???','Your home city','TBD','Jul 11 or Jul 12','Your airline','')}
+      <div class="fpax">${pc([G[3],G[4],G[7],G[8],G[9],G[10],G[11],G[12],G[13],G[15],G[16],G[17],G[18]].filter(Boolean))}</div>
     </div>`;
 }
 
