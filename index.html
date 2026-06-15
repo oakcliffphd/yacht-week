@@ -459,14 +459,17 @@ const GUESTS = [
   {n:"Chelsea",  full:"Chelsea Fegans",   i:"CH",c:"#9a3a4a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
   {n:"Christen", full:"Christen Sutton",  i:"CR",c:"#4a7a4a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
   {n:"Morgan",   full:"Morgan Polk",      i:"MO",c:"#7a4a8a",role:"Guest · solo cabin",       paid:4550,owed:4550,status:"paid",    bd:[["Total paid","$4,550 ✓"],["Balance","$0"]],     trips:["yacht"]},
+  {n:"Kim",      full:"Kim Moore",         i:"KM",c:"#3a6a9a",role:"Montenegro Guest",           paid:0,   owed:0,   status:"paid",    bd:[["Montenegro","✓"]],                            trips:["montenegro"]},
 ];
 
 // Guest email map — maps email → guest index
 const GUEST_EMAILS = {
   "adria_toliver&#64;yahoo.com": 0,
   "karnellblack&#64;gmail.com": 1,
+  "deloriarjackson&#64;gmail.com": 6,
+  "klmoore16&#64;gmail.com": 19,
   // Other guests — add emails as they sign up or share them with you
-  // Format: "email&#64;example.com": INDEX (0-21 matching GUESTS array order)
+  // Format: "email&#64;example.com": INDEX (0-18 matching GUESTS array order)
 };
 
 const FIRST_NAMES = GUESTS.map(g => g.n.toLowerCase());
@@ -1595,9 +1598,41 @@ const GUEST_ITIN = {
   ]},
 
 
+  "Kim": { legs: [
+    { type:"flight", status:"tbd", label:"✈️ Home → Tivat (Montenegro)", date:"Sat Jul 11", details:[
+      {k:"Record Locator", v:""},
+      {k:"Flight",        v:"TBD"},
+      {k:"Arrives",       v:"Tivat (TIV) · Sat Jul 11 · TBD"},
+      {k:"Booked Via",    v:""},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 TIV Airport → Regent Porto Montenegro", date:"Sat Jul 11", details:[
+      {k:"Date",          v:"Sat Jul 11"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Adria"},
+    ]},
+    { type:"hotel", status:"confirmed", label:"🏨 Regent Porto Montenegro", date:"Jul 11 – Jul 15", details:[
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Room Type",     v:"TBD"},
+      {k:"Address",       v:"Obala bb, Porto Montenegro, Tivat, Montenegro"},
+      {k:"Website",       v:"ihg.com/regent"},
+      {k:"Phone",         v:"+382 (0)32 660 660"},
+      {k:"Booked Via",    v:"IHG"},
+    ]},
+    { type:"transfer", status:"tbd", label:"🚗 Regent Porto Montenegro → TIV Airport", date:"Wed Jul 15", details:[
+      {k:"Date",          v:"Wed Jul 15"},
+      {k:"Time",          v:"TBD"},
+      {k:"Confirmation",  v:"TBD"},
+      {k:"Booked By",     v:"Adria"},
+    ]},
+    { type:"flight", status:"tbd", label:"✈️ Montenegro → Home", date:"Wed Jul 15", details:[
+      {k:"Record Locator", v:""},
+      {k:"Flight",        v:"TBD"},
+      {k:"Arrives",       v:"TBD"},
+      {k:"Booked Via",    v:""},
+    ]},
+  ]},
 };
-
-// Default itinerary for guests with no specific data
 function defaultItin(g) {
   const cabin = (() => {
     for (const c of CABINS) {
